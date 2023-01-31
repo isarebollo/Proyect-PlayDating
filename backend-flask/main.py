@@ -18,6 +18,9 @@ def home(path):
 def hola():
     return {"info": "pepito grillo esta en marcha"}
 
+@app.route("/prueba", methods=["GET"])
+def prueba():
+    return {"info": "pepito grillo esta en marcha con una prueba"}
 
 api.add_resource(helloworld)
 
