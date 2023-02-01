@@ -1,20 +1,19 @@
-
+"""
+This module takes care of starting the API Server, Loading the DB and Adding the endpoints
+"""
+import os
 import re
 import bcrypt
 
 from api.estados import ESTADO_CANCELADO, ESTADO_CERRADO, ESTADO_DISPONIBLE, ESTADO_LLENO
 
-
 from flask import Flask, request, jsonify, url_for, Blueprint
+#from flask_migrate import Migrate
 from flask_swagger import swagger
-from flask_restful import Api
-from flask_cors import CORS 
-from api.helloworld_api import helloworld
-
+from flask_cors import CORS
 from api.models import db, Usuario, Actividad, Evento, Participantes_Evento, Tipo_De_Actividad, Comentario, Favorito, Invitacion
+from api.admin import setup_admin
 from api.utils import generate_sitemap, APIException
-
-
 
 from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
@@ -23,30 +22,8 @@ from flask_jwt_extended import JWTManager
 
 from datetime import timedelta
 
-app = Flask(__name__)
-CORS(app) 
-api = Api(app)
-
-
-def obtener_usuario_id():
-    informacion_usuario = get_jwt_identity() 
-    if informacion_usuario is None:
-        raise APIException('Se espera jwt token')
-    return informacion_usuario["usuario_id"]
-
- 
-
-@app.route("/", defaults={'path':''})
-def home(path):
-    return {"info": "Hello! React-Flask Template by Nikhil Mohite - www.github.com/nkilm"}
-
-@app.route("/hola", methods=["GET"])
-def hola():
-    return {"info": "pepito grillo esta en marcha"}
-
-
-##  EN PROCESO DE FUNCIONAMIENTO###########################################
-
+api = Blueprint('api', __name__)
+CORS(api)
 CODE = "utf-8"
 email_regex = '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$'
 
@@ -76,7 +53,7 @@ def validacion_campos_registro(email, password, nombre, provincia, numero_hijos)
 def validacion_campos_login(email, password):
     validacion_email_password(email, password)
 
-@app.route('/nuevo/registro', methods=['POST'])
+@api.route('/nuevo/registro', methods=['POST'])
 def registro():
     body = request.get_json()
     email = body['email']
@@ -97,7 +74,7 @@ def registro():
     db.session.commit()
     return jsonify({'message': 'Usuario creado exitosamente', 'data': usuario.serialize()}), 201
 
-@app.route('/login', methods=['POST'])
+@api.route('/login', methods=['POST'])
 def login():
     body = request.get_json()
     email = body['email']
@@ -118,8 +95,8 @@ def login():
         identity=data, expires_delta=timedelta(weeks=4))
     return jsonify({'message': 'Login exitoso', 'data': token, 'usuario_id': usuario.id})
 
-@app.route('/perfil', methods=['GET'])
-#@jwt_required()
+@api.route('/perfil', methods=['GET'])
+@jwt_required()
 def get_info_usuario():
     usuario_id = obtener_usuario_id()
     usuario = Usuario.query.get(usuario_id)
@@ -127,8 +104,8 @@ def get_info_usuario():
         raise APIException("Usuario no encontrado")
     return jsonify({'message': 'Informacion solicitada con exito', 'data': usuario.serialize()})
 
-@app.route('/perfil/modificar', methods=['POST'])
-#@jwt_required()
+@api.route('/perfil/modificar', methods=['POST'])
+@jwt_required()
 def modificar_info_usuario():
     usuario_id = obtener_usuario_id()
     body = request.get_json()
@@ -144,22 +121,22 @@ def modificar_info_usuario():
     db.session.commit()
     return jsonify({'message': "Campos actualizados exitosamente", 'data': usuario.serialize()})
 
-@app.route('/tipos/actividad', methods=['GET'])
+@api.route('/tipos/actividad', methods=['GET'])
 def get_tipos_de_actividad():
     tipos_de_actividad = Tipo_De_Actividad.query.all()
     all_tipos_de_actividad = list(
         map(lambda tipo_de_actividad: tipo_de_actividad.serialize(), tipos_de_actividad))
     return jsonify(all_tipos_de_actividad)
 
-@app.route('/actividades', methods=['GET'])
+@api.route('/actividades', methods=['GET'])
 def get_actividades():
     actividades = Actividad.query.all()
     all_actividades = list(
         map(lambda actividad: actividad.serialize(), actividades))
     return jsonify({'message': 'Información de todas las actividades solicitada exitosamente', 'data': all_actividades})
 
-@app.route('/crear/evento', methods=['POST'])
-#@jwt_required()
+@api.route('/crear/evento', methods=['POST'])
+@jwt_required()
 def crear_evento():
     body = request.get_json()
     fecha_y_hora = body['fecha_y_hora']
@@ -213,8 +190,8 @@ def validacion_creacion_evento(creador, estado, actividad):
         raise APIException('Usuario no existe')
 
 
-@app.route('/eventos', methods=['GET'])
-#@jwt_required()
+@api.route('/eventos', methods=['GET'])
+@jwt_required()
 def get_eventos():
     all_eventos = []
     creador_id = obtener_usuario_id()
@@ -227,8 +204,8 @@ def get_eventos():
     all_eventos = list(map(lambda evento: evento.serialize(), all_eventos))
     return jsonify({'message': 'Informacion de eventos por provincia solicitada exitosamente', 'data': all_eventos})
 
-@app.route('/evento/<int:evento_id>', methods=['GET'])
-#@jwt_required()
+@api.route('/evento/<int:evento_id>', methods=['GET'])
+@jwt_required()
 def get_evento(evento_id):
     evento = Evento.query.get(evento_id)
     participantes_Evento = Participantes_Evento.query.filter_by(
@@ -245,8 +222,8 @@ def get_evento(evento_id):
         raise APIException("Evento no encontrado")
     return jsonify({'message': 'Informacion detalle de evento solicitada exitosamente', 'data': evento_serialized})
 
-@app.route('/unirse/evento/<int:evento_id>', methods=['POST'])
-#@jwt_required()
+@api.route('/unirse/evento/<int:evento_id>', methods=['POST'])
+@jwt_required()
 def unirse_a_evento(evento_id):
     body = request.get_json()
     evento = Evento.query.filter_by(id=evento_id).first()
@@ -274,8 +251,8 @@ def unirse_a_evento(evento_id):
     db.session.commit()
     return jsonify({'message': 'El usuario se ha unido al evento exitosamente', 'data': participante_evento.serialize()})
 
-@app.route('/retirarse/evento/<int:evento_id>', methods=['DELETE'])
-#@jwt_required()
+@api.route('/retirarse/evento/<int:evento_id>', methods=['DELETE'])
+@jwt_required()
 def retirarse_de_evento(evento_id):
     usuario_id = obtener_usuario_id()
     evento = Evento.query.filter_by(id=evento_id).first()
@@ -296,16 +273,16 @@ def retirarse_de_evento(evento_id):
         'message': "Se retiró exitosamente la participación de este usuario al evento"
     })
 
-@app.route('/eventoscreados/usuario', methods=['GET'])
-#@jwt_required()
+@api.route('/eventoscreados/usuario', methods=['GET'])
+@jwt_required()
 def get_eventos_creados_usuario():
     usuario_id = obtener_usuario_id()
     eventos = Evento.query.filter_by(creador_id=usuario_id).all()
     eventos_creados = list(map(lambda evento: evento.serialize(), eventos))
     return jsonify({'message': 'Informacion de eventos creados por el usuario solicitada exitosamente', 'data': eventos_creados})
 
-@app.route('/cancelarevento/<int:evento_id>', methods=['POST'])
-#@jwt_required()
+@api.route('/cancelarevento/<int:evento_id>', methods=['POST'])
+@jwt_required()
 def cancelar_evento_creado_usuario(evento_id):
     evento_a_modificar = Evento.query.filter_by(id=evento_id).first()
     if evento_a_modificar is None:
@@ -317,7 +294,7 @@ def cancelar_evento_creado_usuario(evento_id):
     return jsonify({'message': 'Evento cancelado exitosamente',
                     'data': evento_a_modificar.serialize()})
 
-@app.route('/eventos/usuario', methods=['GET'])
+@api.route('/eventos/usuario', methods=['GET'])
 @jwt_required()
 def get_eventos_usuario():
     usuario_id = obtener_usuario_id()
@@ -334,7 +311,7 @@ def get_eventos_usuario():
         map(lambda evento: evento.serialize(), all_eventos_usuario))
     return jsonify({'message': 'Informacion de eventos asociados al usuario solicitada exitosamente', 'data': all_eventos_serialized})
 
-@app.route('/comentarios/<int:evento_id>', methods=['GET'])
+@api.route('/comentarios/<int:evento_id>', methods=['GET'])
 @jwt_required()
 def get_comentarios(evento_id):
     comentarios_evento = Comentario.query.filter_by(evento_id=evento_id).all()
@@ -343,7 +320,7 @@ def get_comentarios(evento_id):
         map(lambda comentario: comentario.serialize(), comentarios_evento))
     return jsonify({'message': 'Comentarios solicitados exitosamente', 'data': all_comentarios})
 
-@app.route('/nuevo_comentario/<int:evento_id>', methods=['POST'])
+@api.route('/nuevo_comentario/<int:evento_id>', methods=['POST'])
 @jwt_required()
 def dejar_comentario(evento_id):
     body = request.get_json()
@@ -361,7 +338,7 @@ def dejar_comentario(evento_id):
     db.session.commit()
     return jsonify({'message': "Comentario creado exitosamente", 'data': comentario_nuevo.serialize()})
 
-@app.route('/borrar_comentario/<int:comentario_id>', methods=['DELETE'])
+@api.route('/borrar_comentario/<int:comentario_id>', methods=['DELETE'])
 @jwt_required()
 def borrar_comentario(comentario_id):
     comentario_a_borrar = Comentario.query.filter_by(id=comentario_id).first()
@@ -371,7 +348,7 @@ def borrar_comentario(comentario_id):
         db.session.commit()
     return jsonify({'message': "Comentario borrado exitosamente"})
     
-@app.route('/favoritos', methods=['GET'])
+@api.route('/favoritos', methods=['GET'])
 @jwt_required()
 def get_favoritos():
     usuario_id = obtener_usuario_id()
@@ -380,7 +357,7 @@ def get_favoritos():
         map(lambda favorito: favorito.serialize(), favoritos_usuario))
     return jsonify({'message': 'Favoritos solicitados exitosamente', 'data': all_favoritos})
 
-@app.route('/agregar_favorito', methods=['POST'])
+@api.route('/agregar_favorito', methods=['POST'])
 @jwt_required()
 def agregar_favorito():
     body = request.get_json()
@@ -400,7 +377,7 @@ def agregar_favorito():
     db.session.commit()
     return jsonify({'message': "Favorito agregado exitosamente", 'data': nuevo_favorito.serialize()})
 
-@app.route('/eliminar_favorito/<int:usuario_favorito_id>', methods=['DELETE'])
+@api.route('/eliminar_favorito/<int:usuario_favorito_id>', methods=['DELETE'])
 @jwt_required()
 def eliminar_favorito(usuario_favorito_id):
     usuario_id = obtener_usuario_id()
@@ -411,7 +388,7 @@ def eliminar_favorito(usuario_favorito_id):
         return jsonify({'message': "Favorito borrado exitosamente"})
     raise APIException("Favorito no existe")
 
-@app.route('/invitaciones', methods=['GET'])
+@api.route('/invitaciones', methods=['GET'])
 @jwt_required()
 def get_invitaciones():
     usuario_id = obtener_usuario_id()
@@ -420,8 +397,8 @@ def get_invitaciones():
         map(lambda invitacion: invitacion.serialize(), invitaciones_usuario))
     return jsonify({'message': 'Invitaciones solicitadas exitosamente', 'data': all_invitaciones})
 
-@app.route('/invitar_usuario', methods=['POST'])
-#@jwt_required()
+@api.route('/invitar_usuario', methods=['POST'])
+@jwt_required()
 def invitar_usuario():
     body = request.get_json()
     usuario_id = obtener_usuario_id()
@@ -442,8 +419,8 @@ def invitar_usuario():
     db.session.commit()
     return jsonify({'message': "Usuario invitado exitosamente", 'data': nueva_invitacion.serialize()})  
 
-@app.route('/eliminar_invitacion/<int:invitacion_id>', methods=['DELETE'])
-##@jwt_required()
+@api.route('/eliminar_invitacion/<int:invitacion_id>', methods=['DELETE'])
+@jwt_required()
 def eliminar_invitacion(invitacion_id):
     usuario_id = obtener_usuario_id()
     invitacion_a_borrar = Invitacion.query.filter_by(id=invitacion_id).first()  
@@ -452,15 +429,4 @@ def eliminar_invitacion(invitacion_id):
         db.session.commit()
         return jsonify({'message': "Invitacion borrada exitosamente"})
     raise APIException("Invitacion no existe")
-
-
-
-
-
-
-##  NO TOCAR A PARTIR DE AQUI    ###########################################
-api.add_resource(helloworld)
-
-if __name__ == "__main__":
-    app.run(debug=True,port=6060)
-
+        
