@@ -10,7 +10,7 @@ export const Registro = () => {
             <div id="contenedor-registro">
                 <div id="contenedorcentradoregistro">
                     <div id="registro">
-                        <h2 className="titulo" >Registro</h2>
+                        <h2 className="titulo-registro" >Registro</h2>
                         <form id="loginform">
                             <label for="usuario">Nombre</label>
                             <input id="usuario" type="text" name="usuario" placeholder="Nombre" required></input>

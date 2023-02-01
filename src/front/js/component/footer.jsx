@@ -5,7 +5,7 @@ import "../../styles/footer.css";
 export const Footer = () => (
 
   <>
-    <footer className="text-center text-white">
+    <footer className="text-center  text-white">
 
       <div className="container pt-4">
 
