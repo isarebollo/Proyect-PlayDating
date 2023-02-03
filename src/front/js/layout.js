@@ -9,8 +9,7 @@ import { Login } from "./component/Login/login";
 import { Registro } from "./component/Registro/registro";
 import { Navbar } from "./component/Navbar/navbar.jsx";
 import { Footer } from "./component/Footer/footer";
-//import "../styles/index.css"
-
+import { Eventos } from "./pages/Eventos/Eventos";
 
 
 //create your first component
@@ -29,6 +28,7 @@ const Layout = () => {
                         <Route element={<Home />} path="/" />
                         <Route element={<Login />} path="/login" />
                         <Route element={<Registro />} path="/registro" />
+                        <Route element={<Eventos />} path="/eventos" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
 

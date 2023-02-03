@@ -5,6 +5,8 @@ import "./../Registro/registro.css"
 
 
 export const Registro = () => {
+   
+    
     return (
         <>
             <div id="contenedor-registro">
