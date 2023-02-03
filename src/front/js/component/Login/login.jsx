@@ -1,10 +1,8 @@
-import React, { useState, useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { HOSTNAME } from "../component/config";
-import { Navbar } from "../component/navbar.jsx";
-import "../../styles/login.css";
-import Modal from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";
+import React from "react";
+import { Link } from "react-router-dom";
+
+import "../Login/login.css"
+
 
 export const Login = (props) => {
     

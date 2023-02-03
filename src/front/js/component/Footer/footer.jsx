@@ -1,32 +1,24 @@
 import React from "react";
 
-import "../../styles/footer.css";
+
+import "./../Footer/footer.css"
 
 export const Footer = () => (
 
   <>
-    <footer className="text-center  text-white">
+    <footer className="text-center bg-light  text-white">
 
-      <div className="container pt-4">
+      <div className="container ">
 
-        <section className="mb-4">
-
-          <a
-            className="btn btn-link btn-floating btn-lg text-dark m-1"
-            href="#!"
-            role="button"
-            data-mdb-ripple-color="dark"
-          ><i className="fab fa-facebook-f"></i
-          ></a>
-
+        <section className="mb-2">
 
           <a
             className="btn btn-link btn-floating btn-lg text-dark m-1"
             href="#!"
             role="button"
             data-mdb-ripple-color="dark"
-          ><i className="fab fa-twitter"></i
-          ></a>
+          ><i className="fab fa-facebook-f"></i>
+          </a>
 
 
           <a
@@ -34,8 +26,8 @@ export const Footer = () => (
             href="#!"
             role="button"
             data-mdb-ripple-color="dark"
-          ><i className="fab fa-google"></i
-          ></a>
+          ><i className="fab fa-twitter"></i>
+          </a>
 
 
           <a
@@ -43,8 +35,8 @@ export const Footer = () => (
             href="#!"
             role="button"
             data-mdb-ripple-color="dark"
-          ><i className="fab fa-instagram"></i
-          ></a>
+          ><i className="fab fa-google"></i>
+          </a>
 
 
           <a
@@ -52,16 +44,25 @@ export const Footer = () => (
             href="#!"
             role="button"
             data-mdb-ripple-color="dark"
-          ><i className="fab fa-linkedin"></i
-          ></a>
+          ><i className="fab fa-instagram"></i>
+          </a>
+
 
           <a
             className="btn btn-link btn-floating btn-lg text-dark m-1"
             href="#!"
             role="button"
             data-mdb-ripple-color="dark"
-          ><i className="fab fa-github"></i
-          ></a>
+          ><i className="fab fa-linkedin"></i>
+          </a>
+
+          <a
+            className="btn btn-link btn-floating btn-lg text-dark m-1"
+            href="#!"
+            role="button"
+            data-mdb-ripple-color="dark"
+          ><i className="fab fa-github"></i>
+          </a>
         </section>
 
       </div>

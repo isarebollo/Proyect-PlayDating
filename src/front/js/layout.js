@@ -1,12 +1,14 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import ScrollToTop from "./component/scrollToTop";
-import { Home } from "./pages/home";
-import { Login } from "./pages/login";
-import { Registro } from "./pages/registro";
 import injectContext from "./store/appContext";
-import { Navbar } from "./component/navbar.jsx";
- import { Footer } from "./component/footer.jsx";
+
+
+import ScrollToTop from "./component/scrollToTop";
+import { Home } from "./pages/Home/home";
+import { Login } from "./component/Login/login";
+import { Registro } from "./component/Registro/registro";
+import { Navbar } from "./component/Navbar/navbar.jsx";
+import { Footer } from "./component/Footer/footer";
 //import "../styles/index.css"
 
 
