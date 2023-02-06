@@ -1,4 +1,4 @@
-.card{
-width: 25rem;
-color: black;
+.card {
+    max-width: 540px;
+    color: black;
 }

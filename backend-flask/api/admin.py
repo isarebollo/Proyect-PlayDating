@@ -1,5 +1,5 @@
 from flask import Flask
-from flask_admin import Admin   ## No lo reconoce. 
+from flask_admin import Admin   
 
 
 app = Flask(__name__)
