@@ -1,57 +1,48 @@
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+import os
 
-import re
-import bcrypt
+from flask_migrate import Migrate
 
-from api.estados import ESTADO_CANCELADO, ESTADO_CERRADO, ESTADO_DISPONIBLE, ESTADO_LLENO
-
-from flask import Flask, request, jsonify, url_for, Blueprint
-from flask_swagger import swagger
-from flask_restful import Api
-from flask_cors import CORS 
-from api.helloworld_api import helloworld
-from flask_admin import Admin
-
-from api.models import db, Usuario, Actividad, Evento, Participantes_Evento, Tipo_De_Actividad, Comentario, Favorito, Invitacion
-from api.utils import generate_sitemap, APIException
-
-
-
-from flask_jwt_extended import create_access_token
-from flask_jwt_extended import get_jwt_identity
-from flask_jwt_extended import jwt_required
-from flask_jwt_extended import JWTManager
-
-from datetime import timedelta
+from config import Config
 
 app = Flask(__name__)
-CORS(app) 
-api = Api(app)
+app.config['SQLALCHEMY_DATABASE_URI'] = Config.SQLALCHEMY_DATABASE_URI
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 
+class Usuario(db.Model):
+    __tablename__= "usuario"
+    id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    nombre = db.Column(db.String(250), nullable=False)
+    password = db.Column(db.String(250), nullable=False)
+    # provincia = db.Column(db.String(250), nullable=False)
+    # numero_hijos = db.Column(db.Integer, nullable=False)
 
-def obtener_usuario_id():
-    informacion_usuario = get_jwt_identity() 
-    if informacion_usuario is None:
-        raise APIException('Se espera jwt token')
-    return informacion_usuario["usuario_id"]
-
+    def __repr__(self):
+        return '<Usuario %r>' % self.email
  
-
-@app.route("/",)
-def home():
-    return generate_sitemap(app)
-
-
-
-##  EN PROCESO DE FUNCIONAMIENTO###########################################
-
-
+    def serialize(self):
+        return {
+            "id": self.id,
+            "email": self.email,
+            "nombre": self.nombre,
+            # "provincia": self.provincia,
+            # "numero_hijos": self.numero_hijos
+            }
 
 
+@app.route('/')
+def hello():
+    return "Hello World!"
 
 
-##########################################  NO TOCAR A PARTIR DE AQUI    ###########################################
-api.add_resource(helloworld)
+@app.route('/<name>')
+def hello_name(name):
+    return "Hello {}!".format(name)
 
-if __name__ == "__main__":
+
+if __name__ == '__main__':
     app.run(debug=True,port=6060)
-
