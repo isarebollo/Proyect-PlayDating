@@ -1,6 +1,8 @@
-from main import db
+from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.dialects.postgresql import JSON
 
+
+db = SQLAlchemy()
 
 class Usuario(db.Model):
     __tablename__= "usuario"

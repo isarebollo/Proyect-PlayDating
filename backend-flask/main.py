@@ -1,48 +1,42 @@
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
 import os
 
+from flask import Flask,send_from_directory
+from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
+from api.utils import generate_sitemap
+from api.models import db
 from config import Config
+
+ENV = os.getenv("FLASK_ENV")
+static_file_dir = os.path.join(os.path.dirname(
+    os.path.realpath(__file__)), '../public/')
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = Config.SQLALCHEMY_DATABASE_URI
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(app)
+
+
 migrate = Migrate(app, db)
-
-class Usuario(db.Model):
-    __tablename__= "usuario"
-    id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(120), unique=True, nullable=False)
-    nombre = db.Column(db.String(250), nullable=False)
-    password = db.Column(db.String(250), nullable=False)
-    # provincia = db.Column(db.String(250), nullable=False)
-    # numero_hijos = db.Column(db.Integer, nullable=False)
-
-    def __repr__(self):
-        return '<Usuario %r>' % self.email
- 
-    def serialize(self):
-        return {
-            "id": self.id,
-            "email": self.email,
-            "nombre": self.nombre,
-            # "provincia": self.provincia,
-            # "numero_hijos": self.numero_hijos
-            }
+db.init_app(app)
 
 
 @app.route('/')
-def hello():
-    return "Hello World!"
+def sitemap():
+    if ENV == "development":
+        return generate_sitemap(app)
+    return send_from_directory(static_file_dir, 'index.html')
+
+# any other endpoint will try to serve it like a static file
 
 
-@app.route('/<name>')
-def hello_name(name):
-    return "Hello {}!".format(name)
-
+@app.route('/<path:path>', methods=['GET'])
+def serve_any_other_file(path):
+    if not os.path.isfile(os.path.join(static_file_dir, path)):
+        path = 'index.html'
+    response = send_from_directory(static_file_dir, path)
+    response.cache_control.max_age = 0  # avoid cache memory
+    return response
 
 if __name__ == '__main__':
     app.run(debug=True,port=6060)
