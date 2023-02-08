@@ -7,7 +7,7 @@ class Config(object):
     TESTING = False
     CSRF_ENABLED = True
     SECRET_KEY = '1234'
-    SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:Uno2Tres4@localhost:5432/PLayDating_Api_Rest'
+    SQLALCHEMY_DATABASE_URI = process.env.DATABASE_URL
     
 
 
