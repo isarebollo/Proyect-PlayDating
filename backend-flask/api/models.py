@@ -10,7 +10,7 @@ class Usuario(db.Model):
     email = db.Column(db.String(120), unique=True, nullable=False)
     nombre = db.Column(db.String(250), nullable=False)
     password = db.Column(db.String(250), nullable=False)
-    # provincia = db.Column(db.String(250), nullable=False)
+    provincia = db.Column(db.String(250), nullable=False)
     # numero_hijos = db.Column(db.Integer, nullable=False)
 
     def __repr__(self):
@@ -21,6 +21,6 @@ class Usuario(db.Model):
             "id": self.id,
             "email": self.email,
             "nombre": self.nombre,
-            # "provincia": self.provincia,
+            "provincia": self.provincia,
             # "numero_hijos": self.numero_hijos
             }

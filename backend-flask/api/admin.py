@@ -1,7 +1,7 @@
 import os
 from flask import Flask
 from flask_admin import Admin
-from .models import db, Usuario
+from api.models import db, Usuario
 from flask_admin.contrib.sqla import ModelView
 
 
@@ -15,3 +15,4 @@ def setup_admin(app):
     admin = Admin(app, name='PlayDating', template_mode='bootstrap3')
 # Add administrative views here
     admin.add_view(ModelView(Usuario, db.session))
+   

@@ -11,6 +11,7 @@ from api.utils import generate_sitemap
 from api.models import db
 from api.routes import api
 from api.admin import setup_admin
+
 from config import Config
 
 ENV = os.getenv("FLASK_ENV")
@@ -27,7 +28,6 @@ db.init_app(app)
 
 # add the admin
 setup_admin(app)
-
 
 app.register_blueprint(api, url_prefix='/api')
 

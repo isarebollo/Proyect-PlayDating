@@ -20,7 +20,7 @@ flask_restful = "*"
 flask-admin = "*"
 flask-script = "*"
 flask-sqlalchemy = "*"
-sqlalchemy = "==1.4.46"
+sqlalchemy = "*"
 
 [requires]
 python_version = "3.10"
