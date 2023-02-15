@@ -12,6 +12,8 @@ from flask_swagger import swagger
 from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
+from flask_jwt_extended import JWTManager
+
 
 
 
@@ -77,7 +79,7 @@ def login():
     body = request.get_json()
     email = body["email"]
     password = body["password"]
-    print(body)
+ 
 
     user = Usuario.query.filter_by(email=email).first()
     if user is None:
@@ -91,6 +93,6 @@ def login():
         "email": user.email,
         "usuario_id": user.id
     }
-    token = create_access_token(identity=data)
-    print(token)
-    return jsonify(token), 201
+    token = create_access_token(
+        identity=data)
+    return jsonify({'message': 'Login exitoso', 'data': token, 'usuario_id': user.id})

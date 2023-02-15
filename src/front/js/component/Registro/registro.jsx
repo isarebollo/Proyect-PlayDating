@@ -50,7 +50,6 @@ export const Registro = () => {
 
         const resp = await fetch(HOSTNAME + '/api/nuevo/registro', {
             method: "POST",
-
             headers: {
                 "Content-Type": "application/json",
 
