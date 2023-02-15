@@ -4,8 +4,7 @@ import os
 from flask import Flask,send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-
-
+from flask_cors import CORS
 
 from api.utils import generate_sitemap
 from api.models import db
@@ -19,6 +18,7 @@ static_file_dir = os.path.join(os.path.dirname(
     os.path.realpath(__file__)), '../public/')
 
 app = Flask(__name__)
+
 app.config['SQLALCHEMY_DATABASE_URI'] = Config.SQLALCHEMY_DATABASE_URI
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -28,6 +28,8 @@ db.init_app(app)
 
 # add the admin
 setup_admin(app)
+# Allow CORS requests to this API
+CORS(app)
 
 app.register_blueprint(api, url_prefix='/api')
 

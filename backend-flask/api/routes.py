@@ -2,6 +2,7 @@ import os
 import re
 import bcrypt
 
+from flask_cors import CORS
 from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, Usuario
 from api.utils import generate_sitemap, APIException
@@ -15,7 +16,7 @@ from flask_jwt_extended import jwt_required
 
 
 api = Blueprint('api', __name__)
-
+CORS(api)
 ######   VALIDACIONES CAMPOS #########
 
 # def obtener_usuario_id():
