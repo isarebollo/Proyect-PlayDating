@@ -47,7 +47,7 @@
   }
   .titulo-registro {
     text-align: center;
-    font-size: 300%;
+    font-size: 200%;
     color:#1b262c;
   }
 
@@ -72,13 +72,13 @@
     filter: alpha(opacity=1);
   }
   
-  /* formulario de login */
-  /* formulario de login */
+  /* formulario de registro */
+  /* formulario de registro */
   
   #registro label {
     display: block;
     font-family: 'Overpass', sans-serif;
-    font-size: 120%;
+    font-size: 100%;
     color:#3c4245;
     
     margin-top: 15px;
@@ -86,7 +86,7 @@
   
   #registro input {
     font-family: 'Overpass', sans-serif;
-    font-size: 110%;
+    font-size: 100%;
     color: #1b262c;
     
     display: block;
@@ -111,7 +111,7 @@
   
   #registro button {
     font-family: 'Overpass', sans-serif;
-    font-size: 110%;
+    font-size: 100%;
     color:#1b262c;
     width: 100%;
     height: 40px;
@@ -130,8 +130,8 @@
     background-color: #3c4245;
     color:#dfcdc3;
   }
-  /* formulario de login */
-  /* formulario de login */
+  /* formulario de registro */
+  /* formulario de registro */
   
   
   
@@ -146,7 +146,7 @@
         max-width: 900px;
         width: 90%;
   
-        background-color: #5f6769;
+        background-color: #48558d;
   
         /*opacity: 0.50;
         filter: alpha(opacity=50);*/
@@ -168,7 +168,7 @@
     }
     
     #derecho {
-        padding:20px 20px 20px 20px;
+        padding:10px 10px 10px 10px;
     }
     
     #registro label {
@@ -177,3 +177,5 @@
   }
   /* ajustar a pantallas con ancho menor o igual a 775px; */
   /* ajustar a pantallas con ancho menor o igual a 775px; */
+
+ 

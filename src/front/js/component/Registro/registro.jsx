@@ -1,11 +1,14 @@
-import React, { useState, useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { HOSTNAME } from "./../config.js";
+
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
 import "./../Registro/registro.css"
 
 
 export const Registro = () => {
-
+    const navigate = useNavigate();
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -13,9 +16,24 @@ export const Registro = () => {
     const [numero_hijos, setNumero_hijos] = useState("");
     const [provincia, setProvincia] = useState("");
 
+
+    const [textoAlerta, setTextoAlerta] = useState("");
+    const [navegar, setNavegar] = useState(false);
+    const [show, setShow] = useState(false);
+
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
     const updateText = (e, setState) => {
         const value = e.target.value;
         setState(value);
+    };
+
+    const modalManager = (texto, canNavigate) => {
+        setTextoAlerta(texto);
+        setNavegar(canNavigate);
+        handleShow();
     };
     const onSave = async (e) => {
         e.preventDefault();
@@ -28,19 +46,31 @@ export const Registro = () => {
             numero_hijos,
 
         });
-        console.log(body)
 
-        const resp = await fetch('http://127.0.0.1:5000//api/nuevo/registro', {
+
+        const resp = await fetch(HOSTNAME + '/api/nuevo/registro', {
             method: "POST",
-            
+
             headers: {
                 "Content-Type": "application/json",
-                                             
+
             },
             body,
         });
-        console.log(resp)
-        
+
+        if (!resp.ok) {
+            modalManager("Error al conectar con el Servidor", false);
+        }
+
+        const data = await resp.json();
+
+        if (data.message === "Usuario creado exitosamente") {
+            modalManager(data.message, true);
+        } else {
+            modalManager(data.message, false);
+        }
+
+
     }
 
     return (
@@ -155,6 +185,34 @@ export const Registro = () => {
 
                 </div>
 
+                <Modal
+                    show={show}
+                    onHide={handleClose}
+                    backdrop="static"
+                    keyboard={false}
+                    aria-labelledby="contained-modal-title-vcenter"
+                    centered
+                >
+                    <Modal.Header closeButton>
+                        <Modal.Title>Registro</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>{textoAlerta}</Modal.Body>
+                    <Modal.Footer>
+                        <Button
+
+                            variant="botonmodalazul"
+                            onClick={() => {
+                                if (navegar) {
+                                    navigate("/login");
+                                } else {
+                                    handleClose();
+                                }
+                            }}
+                        >
+                            OK
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
             </div>
 
         </>
