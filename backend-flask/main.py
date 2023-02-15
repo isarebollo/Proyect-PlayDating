@@ -49,4 +49,4 @@ def serve_any_other_file(path):
     return response
 
 if __name__ == '__main__':
-    app.run(debug=True,port=6060)
+    app.run(debug=True)

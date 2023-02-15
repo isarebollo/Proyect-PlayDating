@@ -1,4 +1,4 @@
-export const HOSTNAME ="http://127.0.0.1:6060/"
+export const HOSTNAME ="http://127.0.0.1:5000/"
 
 export const config = {
 
@@ -6,12 +6,3 @@ export const config = {
     nameToken: "token",
   },
 };
-
-
-//paleta de colores
-//  #FFFFF2 AMARILLO
-// #103C76 AZUL OSCURO rgb(16, 60, 118)
-// #FF5757 ROJO  rgb(255, 87, 87)
-// #FFBD59 NARANJA CLARITO  rgb(255, 189, 89)
-// #03989E VERDE  rgb(3, 152, 158)
-// #BAD9ED AZUL CLARITO  rgb(186, 217, 237)
