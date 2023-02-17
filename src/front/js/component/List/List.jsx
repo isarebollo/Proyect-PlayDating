@@ -1,47 +1,51 @@
 import React from "react"
+import propTypes from "prop-types";
 import "./../List/List.css"
+import { Link } from "react-router-dom";
 
 
-export const List = () => {
+export const List = (props) => {
 
     return (
 
         <>
             <div className="list-group">
-                <a href="#" className="list-group-item m-3 list-group-item-action active" aria-current="true">
+                <div className=" text-center list-group-item m-3 list-group-item-action" aria-current="true">
+
                     <div className="d-flex w-100 justify-content-between">
-                        <h5 className="mb-1">LECTURA DE CUENTOS</h5>
-                        <small>Todas las edades</small>
+                        <img src={props.src} alt="" />
+                        <h4 className="mb-1 mt-4 ">{props.name}</h4>
+                        <small>{props.tipo}</small>
                     </div>
-                    <p className="mb-1">Descripcion</p>
-                    <small>Advertencias</small>
-                </a>
-                <a href="#" className="list-group-item m-3 list-group-item-action">
-                    <div className="d-flex w-100 justify-content-between">
-                        <h5 className="mb-1">JUEGOS EN EL AGUA </h5>
-                        <small className="text-muted">3+</small>
+
+                    <div >
+                        <p className="mb-1">{props.descripcion}</p>
                     </div>
-                    <p className="mb-1">Some placeholder content in a paragraph.</p>
-                    <small className="text-muted">And some muted small print.</small>
-                </a>
-                <a href="#" className="list-group-item m-3 list-group-item-action">
-                    <div className="d-flex w-100 justify-content-between">
-                        <h5 className="mb-1">List group item heading</h5>
-                        <small className="text-muted">3 days ago</small>
+
+                    <div className="text-center">
+                        <Link to={`/${props.route}`}>
+                            <button type="button" className="btn btn-lg btn-outline-info">
+                                {props.button}
+                            </button>
+                        </Link>
                     </div>
-                    <p className="mb-1">Some placeholder content in a paragraph.</p>
-                    <small className="text-muted">And some muted small print.</small>
-                </a>
-                <a href="#" className="list-group-item m-3 list-group-item-action">
-                    <div className="d-flex w-100 justify-content-between">
-                        <h5 className="mb-1">List group item heading</h5>
-                        <small className="text-muted">3 days ago</small>
-                    </div>
-                    <p className="mb-1">Some placeholder content in a paragraph.</p>
-                    <small className="text-muted">And some muted small print.</small>
-                </a>
+
+
+
+
+
+                </div>
+
 
             </div>
         </>
     )
 }
+List.propTypes = {
+    clase: propTypes.string,
+    name: propTypes.string,
+    src: propTypes.string,
+    text: propTypes.string,
+    tipo: propTypes.string,
+    route: propTypes.string,
+};

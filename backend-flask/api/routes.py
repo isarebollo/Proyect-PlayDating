@@ -4,7 +4,7 @@ import bcrypt
 
 from flask_cors import CORS
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, Usuario
+from api.models import db, Usuario, Actividad, Evento, Participantes_Evento, Tipo_De_Actividad, Comentario, Favorito, Invitacion
 from api.utils import generate_sitemap, APIException
 from flask_swagger import swagger
 
@@ -19,35 +19,7 @@ from flask_jwt_extended import JWTManager
 
 api = Blueprint('api', __name__)
 CORS(api)
-######   VALIDACIONES CAMPOS #########
 
-# def obtener_usuario_id():
-#     informacion_usuario = get_jwt_identity()
-#     if informacion_usuario is None:
-#         raise APIException('Se espera jwt token')
-#     return informacion_usuario["usuario_id"]
-
-# def validacion_email_password(email, password):
-#     if email == "":
-#         raise APIException("Campo email vacio")
-#     if not (re.search(email_regex, email)):
-#         raise APIException("Formato de email invalido")
-#     if password == "":
-#         raise APIException("Campo password vacio")
-
-# def validacion_campos_registro(email, password, nombre, provincia, numero_hijos):
-#     validacion_email_password(email, password)
-#     if nombre == "":
-#         raise APIException("Campo nombre vacio")
-#     if provincia == "":
-#         raise APIException("Campo provincia vacio")
-#     if numero_hijos == "" or numero_hijos == 0:
-#         raise APIException("Campo numero_hijos vacio o invalido")
-
-# def validacion_campos_login(email, password):
-#     validacion_email_password(email, password)
-
-######   RUTAS BACK #########
 
 @api.route('/nuevo/registro', methods=['POST'])
 def registro():
@@ -96,3 +68,11 @@ def login():
     token = create_access_token(
         identity=data)
     return jsonify({'message': 'Login exitoso', 'data': token, 'usuario_id': user.id})
+
+
+@api.route('/actividades', methods=['GET'])
+def get_actividades():
+    actividades = Actividad.query.all()
+    all_actividades = list(
+        map(lambda actividad: actividad.serialize(), actividades))
+    return jsonify({'message': 'Información de todas las actividades solicitada exitosamente', 'data': all_actividades})

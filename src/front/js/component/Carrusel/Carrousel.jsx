@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { Context } from "./../../store/appContext";
 
+import { config } from "../config.js";
 import Carousel from 'react-bootstrap/Carousel';
 
 
 export const CarouselFadeExample = () => {
+
+
+    
+
     return (
         <>
 
