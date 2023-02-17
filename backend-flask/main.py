@@ -10,6 +10,7 @@ from api.utils import generate_sitemap
 from api.models import db
 from api.routes import api
 from api.admin import setup_admin
+from api.commands import setup_commands
 
 from config import Config
 
@@ -40,6 +41,8 @@ db.init_app(app)
 setup_admin(app)
 # Allow CORS requests to this API
 CORS(app)
+# add the admin
+setup_commands(app)
 
 app.register_blueprint(api, url_prefix='/api')
 
