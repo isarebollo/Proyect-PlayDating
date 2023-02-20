@@ -29,7 +29,7 @@ export const Actividades = () => {
                             tipo={actividad.tipo_de_actividad}
                             descripcion={actividad.descripcion}
                             button=" Crear Evento "
-                            route={"crearevento/" + actividad.id}
+                            route={"crearEvento/" + actividad.id}
                         ></List>
                     </div>
                 );
