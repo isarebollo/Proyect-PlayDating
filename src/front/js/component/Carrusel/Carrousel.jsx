@@ -3,56 +3,75 @@ import { Context } from "./../../store/appContext";
 
 import { config } from "../config.js";
 import Carousel from 'react-bootstrap/Carousel';
+import "./../Carrusel/Carrousel.css"
 
 
-export const CarouselFadeExample = () => {
+let imagenes = [
+
+    {
+        id: "1",
+        name: "Juegos de Agua",
+        url: "https://res.cloudinary.com/dfcsm1fzk/image/upload/v1676627381/PlayDating/1_uvjrwq_z3acjb.png"
+    },
+    {
+        id: "2",
+        name: "Juego de Agua",
+        url: "https://res.cloudinary.com/dfcsm1fzk/image/upload/v1676627381/PlayDating/2_lsrmht_ug8so2.png"
+    }, {
+        id: "3",
+        url: "https://res.cloudinary.com/dfcsm1fzk/image/upload/v1676627381/PlayDating/3_pfaftn_tjq6by.png"
+    }, {
+        id: "4",
+        url: "https://res.cloudinary.com/dfcsm1fzk/image/upload/v1676627381/PlayDating/4_fcaocu_ltzazd.png"
+    }, {
+        id: "5",
+        url: "https://res.cloudinary.com/dfcsm1fzk/image/upload/v1676627381/PlayDating/5_y0uy6z_i35lj1.png"
+    }, {
+        id: "6",
+        url: "https://res.cloudinary.com/dfcsm1fzk/image/upload/v1676627381/PlayDating/6_qqntku_cb1xgr.png"
+    }, {
+        id: "7",
+        url: "https://res.cloudinary.com/dfcsm1fzk/image/upload/v1676627382/PlayDating/7_iaiefz_c49cif.png"
+    }, {
+        id: "8",
+        url: "https://res.cloudinary.com/dfcsm1fzk/image/upload/v1676627382/PlayDating/8_vbix7b_unorpc.png"
+    }, {
+        id: "1",
+        url: "https://res.cloudinary.com/dfcsm1fzk/image/upload/v1676627382/PlayDating/9_eqsdfm_juoagg.png"
+    },
+]
 
 
-    
+
+
+export const Carrusel = () => {
 
     return (
         <>
+            <Carousel touch={true}
+                
+                variant="dark">
+                {imagenes.map(imagen => (
+                    <Carousel.Item key={imagen.id}>
 
-
-            <Carousel fade>
-                <Carousel.Item interval={2000}>
-                    <img
-                        className="d-block w-100"
-                        src="https://media.istockphoto.com/id/1160947136/es/foto/pareja-relajarse-en-la-playa-disfrutar-de-hermoso-mar-en-la-isla-tropical.jpg?s=612x612&w=0&k=20&c=-9tBZSpwpVrSC7xMNf1LN2fUJzlrtCgrFxuvligkkwM="
-                        alt="First slide"
-                    />
-                    <Carousel.Caption>
-                        <h3>First slide label</h3>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item interval={2000}>
-                    <img
-                        className="d-block w-100"
-                        src="https://st.depositphotos.com/1766887/2306/i/450/depositphotos_23063254-stock-photo-beautiful-white-sandy-beaches-of.jpg"
-                        alt="Second slide"
-                    />
-
-                    <Carousel.Caption>
-                        <h3>Second slide label</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item interval={2000}>
-                    <img
-                        className="d-block w-100"
-                        src="https://media.istockphoto.com/id/1173935107/es/foto/larga-ola-en-la-costa-amanecer-en-el-mar-t%C3%BAnez.jpg?s=612x612&w=0&k=20&c=f25DjmKduRJgIx9s3QMITXJqeQvPhDeS4VSiFRMZHyQ="
-                        alt="Third slide"
-                    />
-
-                    <Carousel.Caption>
-                        <h3>Third slide label</h3>
-                        <p>
-                            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-                        </p>
-                    </Carousel.Caption>
-                </Carousel.Item>
+                        <img
+                            className=" imagenCarrusel mx-auto d-block w-50 "
+                            src={imagen.url}
+                        />
+                        <Carousel.Caption>
+                            <h3>{imagen.name}</h3>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                ))
+                }
             </Carousel>
+
+
+
+
+
+
+
         </>
 
     );
