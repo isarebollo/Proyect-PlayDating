@@ -3,8 +3,7 @@ import propTypes from "prop-types";
 import "./CardEvento.css"
 
 import { Link } from "react-router-dom";
-import Modal from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";
+
 import { retirarseDeEvento } from "./../api"
 import { HOSTNAME } from "../config";
 import moment from "moment";
@@ -53,16 +52,16 @@ export const CardEvento = (props) => {
     <>
       <div className="container">
 
-        <div class="col">
-          <div class="card h-100 mb-4 text-center">
-            <img src={props.src} class="card-img-top" alt="..." />
-            <div class="card-body">
+        <div className="col">
+          <div className="card h-100 mb-4 text-center">
+            <img src={props.src} className="card-img-top" alt="..." />
+            <div className="card-body">
               <h5 className="card-title">{props.name}</h5>
 
               <p className="card-text">{date}</p>
             </div>
-            <div class="card-footer">
-              <small class="text-muted">{props.estado}</small>
+            <div className="card-footer">
+              <small className="text-muted">{props.estado}</small>
             </div>
           </div>
         </div>

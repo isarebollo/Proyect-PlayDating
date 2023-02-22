@@ -6,7 +6,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_cors import CORS
 
-from api.utils import generate_sitemap
+from api.utils import generate_sitemap,APIException
 from api.models import db
 from api.routes import api
 from api.admin import setup_admin
