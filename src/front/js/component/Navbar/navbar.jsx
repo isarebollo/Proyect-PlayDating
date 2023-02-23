@@ -23,6 +23,8 @@ export const Navbar = () => {
               <a className="nav-link" href="/actividades">Actividades</a>
               <a className="nav-link" href="/eventos">Eventos</a>
               <a className="nav-link" href="/misEventos">Mis eventos</a>
+              <a className="nav-link" href="/miPerfil">MiPerfil</a>
+              
             </div>
             <form className="ms-auto">
               <Link to="/login">

@@ -7,17 +7,17 @@ import Button from "react-bootstrap/Button";
 import "./../Crear Evento/CrearEvento.css"
 import { HOSTNAME } from "../../component/config";
 
-import { InvitarUsuario } from "../../component/Invitar Usuario/InvitarUsuario";
+import { InvitarUsuario } from "./../../component/Otros/InvitarUsuario";
 import { invitarUsuario } from "../../component/api";
 
 export const CrearEvento = (props) => {
   const navigate = useNavigate();
-//   useEffect(() => {
-//     if (!localStorage.getItem("token")) {
-//       navigate("/zonaprivada");
-//     } else {
-//     }
-//   }, []);
+   useEffect(() => {
+     if (!localStorage.getItem("token")) {
+       navigate("/zonaprivada");
+     } else {
+    }
+   }, []);
 
   const { store } = useContext(Context);
   const { actividadId } = useParams();
@@ -84,7 +84,7 @@ export const CrearEvento = (props) => {
       minimo_participantes: parseInt(minimo_participantes),
     });
 
-    const resp = await fetch(HOSTNAME + "/crear/evento", {
+    const resp = await fetch(HOSTNAME + "/api/crear/evento", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -92,6 +92,7 @@ export const CrearEvento = (props) => {
       },
       body,
     });
+    console.log(resp)
     const data = await resp.json();
     if (resp.ok) {
       setModal(true);

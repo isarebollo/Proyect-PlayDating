@@ -14,6 +14,7 @@ import {Actividades} from "./pages/Actividades/Actividades.jsx"
 import { MisEventos } from "./pages/Mis Eventos/MisEventos.jsx";
 import { CrearEvento } from "./pages/Crear Evento/CrearEvento.jsx";
 import { DetalleEvento } from "./pages/Detalle/DetalleEvento.jsx";
+import { Miperfil } from "./pages/Mi Perfil/MiPerfil.jsx";
 
 //create your first component
 const Layout = () => {
@@ -36,6 +37,7 @@ const Layout = () => {
                         <Route element={<Actividades />} path="/actividades" />
                         <Route element={<CrearEvento />} path="/crearEvento/:actividadId" />
                         <Route element={<DetalleEvento />} path="/detalleEvento/:eventoId" />
+                        <Route element={<Miperfil />} path="/miPerfil" />
                         <Route element={<h1>Not found!</h1>} />
                         
                     </Routes>

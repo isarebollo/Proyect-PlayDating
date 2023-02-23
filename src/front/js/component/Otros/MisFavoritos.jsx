@@ -15,6 +15,7 @@ export const MisFavoritos = () => {
         const errorStr = JSON.stringify(error);
       });
   }, []);
+  
 
   const onEliminarFavorito = (usuarioFavoritoId) => {
     eliminarFavorito(usuarioFavoritoId)

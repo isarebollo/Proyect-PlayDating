@@ -1,5 +1,5 @@
 import React, { useState, useEffect,  } from "react";
-import { obtenerFavoritos } from "../api.js";
+import { obtenerFavoritos } from "./../api.js";
 
 
 export const InvitarUsuario = (props) => {
