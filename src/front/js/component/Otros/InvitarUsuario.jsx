@@ -43,7 +43,7 @@ export const InvitarUsuario = (props) => {
   <>
     
     <div className="mb-2 mx-auto">
-      <label className="col-form-label">Invita a tus favoritos</label>
+      <label className="col-form-label">Invita a tus amigos favoritos</label>
       
       <select
         onChange={(e) => updateSelect(e, setInvitacion)}

@@ -12,17 +12,17 @@ import { invitarUsuario } from "../../component/api";
 
 export const CrearEvento = (props) => {
   const navigate = useNavigate();
-   useEffect(() => {
-     if (!localStorage.getItem("token")) {
-       navigate("/zonaprivada");
-     } else {
+  useEffect(() => {
+    if (!localStorage.getItem("token")) {
+      navigate("/zonaprivada");
+    } else {
     }
-   }, []);
+  }, []);
 
   const { store } = useContext(Context);
   const { actividadId } = useParams();
   const actividadEscojida = store.actividades.find(
-    (actividad) => actividadId === actividad.id
+    (actividad) => parseInt(actividadId) === actividad.id
   );
 
   // inputs a rellenar por usuario
@@ -92,8 +92,10 @@ export const CrearEvento = (props) => {
       },
       body,
     });
-    console.log(resp)
+
     const data = await resp.json();
+    console.log(data)
+
     if (resp.ok) {
       setModal(true);
       console.log(usuarioAInvitar);
@@ -110,27 +112,27 @@ export const CrearEvento = (props) => {
 
   return (
     <>
-     
-      <h2 id="h2CrearEvento">Crea tu Evento</h2>
-      <div className="container">
-        
-        <div className="row g-3 my-5 mx-2 justify-content-center" id="containerCrearEvento">
-          
-          <div className="col-sm-4 ms-2">
-            <h3 id="NombreActividadEvento"> {actividadEscojida.nombre}</h3>
+
+      <div className="container-sm">
+
+        <h2 className="mb-5 text-center">Crea tu Evento</h2>
+        <div className="row g-3 justify-content-center" id="CrearEvento">
+
+          <div className="col-sm-4 DatosCrearEvento">
+            <h3 className="mt-5" id="NombreActividadEvento"> {actividadEscojida.nombre}</h3>
             <img
-              className="img-fluid mt-3"
+              className=" mt-2 img-fluid "
               src={actividadEscojida.imagen}
-              alt=""
+              alt={actividadEscojida.nombre}
             />
-            <div className="mb-3 mt-3">
+            <div className="mb-3 mt-5">
               <p id="descripcionCrearEvento">{actividadEscojida.descripcion}</p>
             </div>
           </div>
           <div className="col-2"></div>
 
-          <div className="col-sm-4 ms-2">
-            <div className="row">
+          <div className="col-sm-4 ps-5 DatosCrearEvento">
+            <div className="row ">
               <div className="col-10">
                 <form className="was-validated">
                   <div className="mb-2">
@@ -164,7 +166,7 @@ export const CrearEvento = (props) => {
             <div className="row">
               <div className="col-10">
                 <form className="was-validated">
-                  <label className="col-sm-2 col-form-label">
+                  <label className="col-sm-4 col-form-label">
                     Participantes
                   </label>
                   <div className="row">
@@ -194,7 +196,7 @@ export const CrearEvento = (props) => {
                     </div>
                   </div>
 
-                  <label className="col-sm-2 col-form-label">Edad</label>
+                  <label className="col-sm-4 col-form-label">Edad</label>
                   <div className="row">
                     <div className="col-6" id="input-group-crear-evento">
                       <input
@@ -247,15 +249,15 @@ export const CrearEvento = (props) => {
               <button
                 disabled={deshabilitado}
                 onClick={onSave}
-                id="buttonCrearEvento"
-                className="btn"
+
+                className="btn btnCrearEvento"
                 type="submit"
               >
                 Crear Evento
               </button>
             </div>
           </div>
-          
+
         </div>
 
         <Modal

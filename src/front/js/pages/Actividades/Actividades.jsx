@@ -18,6 +18,7 @@ export const Actividades = () => {
             const actividades = data.data;
             actions.agregarActividades(actividades);
             let cardsActividades = actividades.map((actividad, index) => {
+               
                 return (
                     <div key={index}>
                         <List

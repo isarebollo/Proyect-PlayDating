@@ -6,6 +6,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			favoritos: []
 
 		},
+		
 		actions: {
 			agregarActividades: (listaDeActividades) => {
 				setStore({ actividades: listaDeActividades });

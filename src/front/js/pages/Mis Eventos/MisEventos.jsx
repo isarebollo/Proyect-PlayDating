@@ -33,8 +33,7 @@ export const MisEventos = () => {
             Authorization: `Bearer ${localStorage.token}`,
           },
         });
-        console.log(response1)
-        console.log(response)
+       
 
         const json = await response.json();
         const json1 = await response1.json();
