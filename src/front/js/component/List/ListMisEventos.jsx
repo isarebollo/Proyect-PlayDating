@@ -3,6 +3,7 @@ import propTypes from "prop-types";
 import { HOSTNAME } from "./../../component/config"
 import { retirarseDeEvento } from "../api";
 import "./../List/ListMisEventos.css"
+import "./../../../../App.css"
 import { Link } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";

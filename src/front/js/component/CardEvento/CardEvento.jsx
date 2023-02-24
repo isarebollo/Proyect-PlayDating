@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import propTypes from "prop-types";
 import "./CardEvento.css"
+import "./../../../../App.css"
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";

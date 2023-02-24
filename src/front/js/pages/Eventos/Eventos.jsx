@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import { HOSTNAME } from "./../../component/config"
 import { CardEvento } from "../../component/CardEvento/CardEvento";
-
+import "./../../../../App.css"
 
 export const Eventos = () => {
    

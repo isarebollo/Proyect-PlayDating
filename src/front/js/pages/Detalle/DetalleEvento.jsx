@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-
+import "./../../../../App.css"
 import { ComentariosEvento } from "../../component/Comentarios/ComentariosEvento.jsx";
 import { DetallesEventoCreado } from "../../component/Detalles/DetallesEventoCreado.jsx";
 import { DetallesActividadEvento } from "../../component/Detalles/DetallesActividadeEvento"

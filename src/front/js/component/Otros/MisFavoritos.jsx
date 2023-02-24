@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import "./../../../../App.css"
 import { obtenerFavoritos, eliminarFavorito } from "./../api.js";
 import { FaTrash } from 'react-icons/fa';
 import {BsFillStarFill} from 'react-icons/bs';

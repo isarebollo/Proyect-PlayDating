@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import "./../../../../App.css"
 
 export const NavbarSinToken = () => {
 
@@ -25,7 +25,7 @@ export const NavbarSinToken = () => {
                         <Link to="/login">
                             <button
 
-                                className="btn btn-outline-dark me-2"
+                                className="button btn-outline-dark me-2"
                             >
                                 Login
                             </button>
@@ -33,7 +33,7 @@ export const NavbarSinToken = () => {
                         <Link to="/registro">
                             <button
 
-                                className="btn btn-outline-dark me-2"
+                                className="button btn-outline-dark me-2"
                             >
                                 Registro
                             </button>

@@ -5,6 +5,7 @@ import { HOSTNAME } from "./../config.js";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import "./../Registro/registro.css"
+import "./../../../../App.css"
 
 
 export const Registro = () => {

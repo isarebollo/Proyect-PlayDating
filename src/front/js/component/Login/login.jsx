@@ -6,6 +6,7 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 
 import "../Login/login.css"
+import "./../../../../App.css"
 
 
 export const Login = (props) => {

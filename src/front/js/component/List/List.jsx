@@ -1,6 +1,7 @@
 import React from "react"
 import propTypes from "prop-types";
 import "./../List/List.css"
+import "./../../../../App.css"
 import { Link } from "react-router-dom";
 
 
@@ -24,7 +25,7 @@ export const List = (props) => {
 
                     <div className="text-center">
                         <Link to={`/${props.route}`}>
-                            <button type="button" className="btn btn-lg btn-outline-info">
+                            <button type="button" className="button btn-lg btn-outline-info">
                                 {props.button}
                             </button>
                         </Link>

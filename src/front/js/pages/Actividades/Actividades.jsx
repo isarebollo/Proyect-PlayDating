@@ -3,6 +3,7 @@ import { obtenerActividades } from "./../../component/api";
 import { Context } from "../../store/appContext";
 import { List } from "../../component/List/List";
 import "./../Actividades/Actividades.css"
+import "./../../../../App.css"
 
 export const Actividades = () => {
 

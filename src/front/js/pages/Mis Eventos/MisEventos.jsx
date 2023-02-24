@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import { HOSTNAME } from "./../../component/config"
 import "./../Mis Eventos/MisEventos.css"
-
+import "./../../../../App.css"
 import { ListMisEventos } from "../../component/List/ListMisEventos";
 
 

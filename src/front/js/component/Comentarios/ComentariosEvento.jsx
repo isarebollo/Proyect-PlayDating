@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import "./../../../../App.css"
 import { Comentario } from "./Comentario.jsx";
 import { dejarComentario,obtenerComentarios } from "./../api.js";
 

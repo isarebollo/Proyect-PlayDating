@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { FaTrash } from 'react-icons/fa';
 import { GoPrimitiveDot } from 'react-icons/go';
 
-
+import "./../../../../App.css"
 
 export const MisInvitaciones = () => {
   const { store, actions } = useContext(Context);

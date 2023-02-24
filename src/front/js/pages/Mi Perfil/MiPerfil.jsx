@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import "./../../../../App.css"
 import "./../Mi Perfil/MiPerfil.css"
 import { MisFavoritos } from "./../../component/Otros/MisFavoritos.jsx";
 import {Perfil} from "./../../component/Perfil/Perfil"

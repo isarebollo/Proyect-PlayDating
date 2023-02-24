@@ -5,7 +5,7 @@ import { config } from "./../../component/config"
 import { useNavigate } from "react-router-dom";
 import { obtenerDatosPerfil } from "./../../component/api";
 import "./../HomeCardGroup/HomeCardGroup.css"
-
+import "./../../../../App.css"
 
 export const HomeCardGroup = () => {
   const navigate = useNavigate();

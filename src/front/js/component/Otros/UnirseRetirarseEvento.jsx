@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 
 import { unirseEvento, retirarseDeEvento } from "./../api.js";
 import { useNavigate } from "react-router-dom";
-
+import "./../../../../App.css"
 export const UnirseRetirarseEvento = (props) => {
 
   const navigate = useNavigate();

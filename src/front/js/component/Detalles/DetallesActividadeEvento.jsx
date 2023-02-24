@@ -1,6 +1,6 @@
 import React from "react";
 import "./../Detalles/DetalleActividadesEvento.css"
-
+import "./../../../../App.css"
 export const DetallesActividadEvento = (props) => {
 
   const participantesEvento = (listaParticipantes) => {

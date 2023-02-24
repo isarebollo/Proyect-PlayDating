@@ -5,6 +5,7 @@ import DateTimePicker from "react-datetime-picker";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import "./../Crear Evento/CrearEvento.css"
+import "./../../../../App.css"
 import { HOSTNAME } from "../../component/config";
 
 import { InvitarUsuario } from "./../../component/Otros/InvitarUsuario";

@@ -3,7 +3,7 @@ import propTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 import "./../Card/Card.css"
-
+import "./../../../../App.css"
 export const Card = (props) => {
     const clase = props.forzarHeight
         ? "card text-center h-50"
@@ -37,9 +37,9 @@ export const Card = (props) => {
                     )}
                 </div>
                 {props.button && (
-                    <div className="m-2">
+                    <div className="m-2 ">
                         <Link to={`/${props.route}`}>
-                            <button href="#" id="buttonCard" className="btn btn-outline">
+                            <button href="#" id="buttonCard" className="button btn-outline">
                                 {props.button}
                             </button>
                         </Link>

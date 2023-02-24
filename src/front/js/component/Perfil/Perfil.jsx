@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import "./../Perfil/Perfil.css"
+import "./../../../../App.css"
 import {
     HOSTNAME, config
 } from "../config.js";
