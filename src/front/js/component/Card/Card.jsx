@@ -2,7 +2,7 @@ import React from "react";
 import propTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-
+import "./../Card/Card.css"
 
 export const Card = (props) => {
     const clase = props.forzarHeight
@@ -19,8 +19,7 @@ export const Card = (props) => {
 
     return (
         <>
-            <div className={clase} id={cardId}
->
+            <div className={clase} id={cardId}>
                 <img
                     className="card-img-top img-fluid rounded"
                     id={imagenId}

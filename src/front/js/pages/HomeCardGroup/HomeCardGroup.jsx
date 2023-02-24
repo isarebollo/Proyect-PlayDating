@@ -4,7 +4,7 @@ import { Card } from "./../../component/Card/Card.jsx";
 import { config } from "./../../component/config"
 import { useNavigate } from "react-router-dom";
 import { obtenerDatosPerfil } from "./../../component/api";
-
+import "./../HomeCardGroup/HomeCardGroup.css"
 
 
 export const HomeCardGroup = () => {
@@ -85,7 +85,8 @@ export const HomeCardGroup = () => {
          </div>
         </div>
         
-      </div>
+      </div> 
+
     </>
   );
 };
