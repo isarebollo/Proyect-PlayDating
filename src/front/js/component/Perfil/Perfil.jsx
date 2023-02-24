@@ -212,7 +212,7 @@ export const Perfil = (props) => {
                             variant="botonmodalazul"
                             onClick={() => {
                                 if (navegar) {
-                                    // location.reload();
+                                    window.location.reload();
                                 } else {
                                     handleClose();
                                 }

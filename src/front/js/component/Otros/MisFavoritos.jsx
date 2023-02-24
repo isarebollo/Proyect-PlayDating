@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 
 import { obtenerFavoritos, eliminarFavorito } from "./../api.js";
+import { FaTrash } from 'react-icons/fa';
+import {BsFillStarFill} from 'react-icons/bs';
+import {GoPrimitiveDot} from 'react-icons/go';
 
 export const MisFavoritos = () => {
 
@@ -30,12 +33,14 @@ export const MisFavoritos = () => {
 
   return (
     <>
-      <div className="container mx-auto" id="favoritosPerfil">
-        <div className="card" id="cardFavoritos">
+      <div className="container mx-auto">
+        <div className="card" >
           <div className="card-header">
-            <h5 className="text-center" id="tituloFavorito">
+            <h5 className="text-center">
               Mis Favoritos
-              <i className="fa fa-star ms-3" id="favoritoPerfil"></i>
+              <i className="text-warning ms-3">
+                <BsFillStarFill></BsFillStarFill>
+              </i>
             </h5>
           </div>
           <ul className="list-group list-group-flush">
@@ -48,14 +53,14 @@ export const MisFavoritos = () => {
             {favoritos.map((favorito, index) => {
               return (
                 <li className="list-group-item m-1" key={index}>
-                  {favorito.usuario_favorito.nombre}{" "}
+                 <GoPrimitiveDot></GoPrimitiveDot> {favorito.usuario_favorito.nombre}{" "}
                   <button
                     className="btn btn-outline-danger ms-4"
                     onClick={() => {
                       onEliminarFavorito(favorito.usuario_favorito.id);
                     }}
                   >
-                    <i className="fa fa-trash"></i>
+                    <FaTrash></FaTrash>
                   </button>
                 </li>
               );

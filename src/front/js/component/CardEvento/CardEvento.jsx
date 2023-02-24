@@ -1,7 +1,8 @@
 import React, { useContext, useState } from "react";
 import propTypes from "prop-types";
 import "./CardEvento.css"
-
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 
 import { retirarseDeEvento } from "./../api"
@@ -16,7 +17,7 @@ export const CardEvento = (props) => {
 
   const onCancel = async () => {
     const response = await fetch(
-      HOSTNAME + `/cancelarevento/${props.evento_id}`,
+      HOSTNAME + `/api/cancelarevento/${props.evento_id}`,
       {
         method: "POST",
         headers: {
@@ -25,6 +26,7 @@ export const CardEvento = (props) => {
         },
       }
     );
+    
     const json = await response.json();
     setTextoModal("Se ha cancelado este evento.");
     setModal1(false);
@@ -106,7 +108,7 @@ export const CardEvento = (props) => {
                   <div className="card-footer bg-body">
                     <Link to={props.route}>
                       <button
-                        id="buttonVerDetalles"
+                     
                         href="#"
                         className="btn"
                         role="button"
@@ -154,7 +156,78 @@ export const CardEvento = (props) => {
           </div>
         </div>
 
-
+        <Modal show={modal1} onHide={() => setModal1(false)}>
+          <Modal.Header closeButton>
+            <Modal.Title>Cancelar este evento</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>{textoModal}</Modal.Body>
+          <Modal.Footer>
+            <Button
+              className="btn-info"
+              variant="botonmodalazul"
+              onClick={() => {
+                onCancel();
+               
+              }}
+            >
+              Confirmar
+            </Button>
+            <Button
+              className="btn-danger"
+              variant="botonmodalrojo"
+              onClick={() => {
+                setModal1(false);
+              }}
+            >
+              Cancelar
+            </Button>
+          </Modal.Footer>
+          {/*--------------MODAL CONFIRMACION-----------------*/}
+        </Modal>
+        <Modal show={modal2} onHide={() => setModal2(false)}>
+          <Modal.Header closeButton>
+            <Modal.Title>Detalles de este evento</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>{textoModal}</Modal.Body>
+          <Modal.Footer>
+            <Button
+              className="botonmodalazul"
+              variant="botonmodalazul"
+              onClick={() => {
+                window.location.reload(false);
+              }}
+            >
+              Aceptar
+            </Button>
+          </Modal.Footer>
+        </Modal>
+        {/*--------------MODAL RETIRO EVENTO----------------*/}
+        <Modal show={modal3} onHide={() => setModal3(false)}>
+          <Modal.Header closeButton>
+            <Modal.Title>Retirarme de este evento</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>{textoModal}</Modal.Body>
+          <Modal.Footer>
+            <Button
+              className="botonmodalazul"
+              variant="botonmodalazul"
+              onClick={() => {
+                onRetirarse();
+              }}
+            >
+              Confirmar
+            </Button>
+            <Button
+              className="botonmodalrojo"
+              variant="botonmodalrojo"
+              onClick={() => {
+                setModal3(false);
+              }}
+            >
+              Cancelar
+            </Button>
+          </Modal.Footer>
+        </Modal>
 
 
 

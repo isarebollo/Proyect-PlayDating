@@ -3,6 +3,10 @@ import React, { useState, useEffect, useContext } from "react";
 import { obtenerInvitaciones, eliminarInvitacion } from "./../api.js";
 import { Context } from "./../../store/appContext";
 import { Link } from "react-router-dom";
+import { FaTrash } from 'react-icons/fa';
+import { GoPrimitiveDot } from 'react-icons/go';
+
+
 
 export const MisInvitaciones = () => {
   const { store, actions } = useContext(Context);
@@ -50,36 +54,36 @@ export const MisInvitaciones = () => {
             {invitaciones.map((invitacion, index) => {
               return (
                 <li className="list-group-item m-1" key={index}>
-                  
-                  <div className="row m-2">
-                    {invitacion.usuario_creador.nombre +
+
+                  <div>
+                    <GoPrimitiveDot></GoPrimitiveDot>{invitacion.usuario_creador.nombre +
                       " " +
                       "te ha invitado a " +
                       invitacion.evento.actividad.nombre}{" "}
                   </div>
                   <div className="row">
                     <div className="col-10">
-                  <Link to={"/detalleEvento/" + invitacion.evento.id}>
-                    <button
-                      className="btn btn-outline ms-1"
-                      id="buttonInvitacion"
-                      onClick={() => {}}
-                    >
-                      {" "}
-                      Ver Evento
-                    </button>
-                  </Link>
-                  </div>
-                  <div className="col-2">
-                  <button
-                    className="btn btn-outline-danger justify-content-end"
-                    onClick={() => {
-                      onEliminarInvitacion(invitacion.id);
-                    }}
-                  >
-                    <i className="fa fa-times"></i>
-                  </button>
-                  </div>
+                      <Link to={"/detalleEvento/" + invitacion.evento.id}>
+                        <button
+                          className="btn btn-outline-info ms-1"
+
+                          onClick={() => { }}
+                        >
+                          {" "}
+                          Ver Evento
+                        </button>
+                      </Link>
+                    </div>
+                    <div className="col-2">
+                      <button
+                        className="btn btn-outline-danger"
+                        onClick={() => {
+                          onEliminarInvitacion(invitacion.id);
+                        }}
+                      >
+                        <FaTrash></FaTrash>
+                      </button>
+                    </div>
                   </div>
                 </li>
               );
