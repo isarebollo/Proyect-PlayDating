@@ -15,6 +15,7 @@ import { MisEventos } from "./pages/Mis Eventos/MisEventos.jsx";
 import { CrearEvento } from "./pages/Crear Evento/CrearEvento.jsx";
 import { DetalleEvento } from "./pages/Detalle/DetalleEvento.jsx";
 import { Miperfil } from "./pages/Mi Perfil/MiPerfil.jsx";
+import { HomeCardGroup } from "./pages/HomeCardGroup/HomeCardGroup.jsx";
 
 //create your first component
 const Layout = () => {
@@ -30,6 +31,7 @@ const Layout = () => {
 
                     <Routes>
                         <Route element={<Home />} path="/" />
+                        <Route element={<HomeCardGroup />} path="/home" />
                         <Route element={<Login />} path="/login" />
                         <Route element={<Registro />} path="/registro" />
                         <Route element={<Eventos />} path="/eventos" />

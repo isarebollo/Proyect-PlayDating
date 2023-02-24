@@ -1,6 +1,6 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Context } from "./../../store/appContext";
+
 import { HOSTNAME } from "./../../component/config"
 import "./../Mis Eventos/MisEventos.css"
 
@@ -9,7 +9,7 @@ import { ListMisEventos } from "../../component/List/ListMisEventos";
 
 export const MisEventos = () => {
 
-  const { store, actions } = useContext(Context);
+  
   const [eventos, setEventos] = useState([]);
   const navigate = useNavigate();
 

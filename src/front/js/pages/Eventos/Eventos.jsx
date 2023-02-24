@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
-import { Context } from "./../../store/appContext";
+
 import { HOSTNAME } from "./../../component/config"
 import { CardEvento } from "../../component/CardEvento/CardEvento";
 
 
 export const Eventos = () => {
-    const { actions } = useContext(Context);
+   
     const [eventos, setEventos] = useState([]);
     const navigate = useNavigate();
 
