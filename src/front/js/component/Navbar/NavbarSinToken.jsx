@@ -15,12 +15,6 @@ export const NavbarSinToken = () => {
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div className="navbar-nav">
-
-                        <a className="nav-link" href="/actividades">Actividades</a>
-
-
-                    </div>
                     <form className="ms-auto">
                         <Link to="/login">
                             <button

@@ -33,8 +33,8 @@ export const MisFavoritos = () => {
 
   return (
     <>
-      <div className="container mx-auto">
-        <div className="card" >
+      <div className="container mx-auto ">
+        <div className="card border" >
           <div className="card-header">
             <h5 className="text-center">
               Mis Favoritos

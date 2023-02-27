@@ -45,13 +45,13 @@ const FormularioHijos = () => {
 						});
 					}}
 
-					placeholder="Escribe el nombre de tu hij@"
+					placeholder="Nombre"
 					value={nombrehijos.label}
 					className="form-control"
 				/>
 				<button
-				id="buttonAñadirHijos"
-					className="btn"
+				
+					className=" btn btn-info"
 					onClick={guardarNombre}>
 					Añadir
 				</button>
@@ -65,7 +65,7 @@ const FormularioHijos = () => {
 
 						<button
 						id="buttonEliminarHijo"
-							className="btn"
+							className="btn btn-danger"
 							onClick={() =>
 								eliminarhijos(index)
 							}>

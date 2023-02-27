@@ -40,17 +40,18 @@ def setup_commands(app):
     def insert_actividades_data():
         if len(Actividad.query.all()) == 0:
             actividades = [
-                {"nombre": "Juegos de Agua", "descripcion": "Planea refrescantes juegos de agua en verano para tus hijos y sus nuevos amigos. Cada participante lleva los implementos necesarios. Tú eliges el lugar. Cada participante requiere de la compañía de un adulto responsable.", "tipo_de_actividad_id": 1, "imagen": "url"},
-                {"nombre": "Jugar Fútbol", "descripcion": "Organiza una jugada al futbol con tus hijos y sus nuevos amigos. Cada participante lleva los implementos necesarios. Tú eliges el lugar. Cada participante requiere de la compañía de un adulto responsable. ", "tipo_de_actividad_id": 1, "imagen": "url"},
-                {"nombre": "Picnic", "descripcion": "Ten un picnic con tus hijos y sus nuevos amigos. Cada participante lleva algo para compartir entre todos. Tú eliges el lugar. Cada participante requiere de la compañía de un adulto responsable.", "tipo_de_actividad_id": 1, "imagen": "url"},
+                {"nombre": "Juegos de Agua", "descripcion": "Planea refrescantes juegos de agua en verano para tus hijos y sus amigos. Cada participante lleva los implementos necesarios. Tú eliges el lugar. Cada participante requiere de la compañía de un adulto responsable.", "tipo_de_actividad_id": 1, "imagen": "url"},
+                {"nombre": "Partido de Fútbol", "descripcion": "Organiza un partido de futbol con tus hijos y sus amigos. Cada participante lleva los implementos necesarios. Tú eliges el lugar. Cada participante requiere de la compañía de un adulto responsable. ", "tipo_de_actividad_id": 1, "imagen": "url"},
+                {"nombre": "Picnic", "descripcion": "Ten un picnic con tus hijos y sus amigos. Cada participante lleva algo para compartir entre todos. Tú eliges el lugar. Cada participante requiere de la compañía de un adulto responsable.", "tipo_de_actividad_id": 1, "imagen": "url"},
                 {"nombre": "Ruta en Ruedas", "descripcion": "Montar en Bici, patines o patineta. Cada participante lleva su vehiculo. Tú eliges el lugar. Cada participante requiere de la compañía de un adulto responsable.",
                     "tipo_de_actividad_id": 1, "imagen": "url"},
-                {"nombre": "Juego Libre", "descripcion": "Tus hijos y sus nuevos amigos podrán jugar libremente en el parque. Tú eliges el lugar. Cada participante requiere de la compañía de un adulto responsable.",
+                {"nombre": "Juego Libre al Exterior", "descripcion": "Tus hijos y sus amigos podrán jugar libremente en el parque. Tú eliges el lugar. Cada participante requiere de la compañía de un adulto responsable.",
                     "tipo_de_actividad_id": 1, "imagen": "url"},
-                {"nombre": "Manualidades", "descripcion": "Organiza una sesión de manualidades para tus hijos y sus nuevos amigos. Cada participante lleva los implementos necesarios. Tú eliges el lugar. Cada participante requiere de la compañía de un adulto responsable.", "tipo_de_actividad_id": 2, "imagen": "url"},
-                {"nombre": "Lectura de Cuentos/Libros", "descripcion": "Planea una sesión de lectura para tus hijos y sus nuevos amigos. Cada participante puede llevar un libro. Tú eliges el lugar. Cada participante requiere de la compañía de un adulto responsable.", "tipo_de_actividad_id": 2, "imagen": "url"},
-                {"nombre": "Juegos de Mesa/Puzzles", "descripcion": "Organiza una sesión de juegos de mesa  y/o puzzles para tus hijos y sus nuevos amigos. Cada participante puede llevar un juego/puzzle. Tú eliges el lugar. Cada participante requiere de la compañía de un adulto responsable.", "tipo_de_actividad_id": 2, "imagen": "url"},
-                {"nombre": "Juego Libre", "descripcion": "Tus hijos y sus nuevos amigos podrán jugar libremente. Tú eliges el lugar. Cada participante requiere de la compañía de un adulto responsable.", "tipo_de_actividad_id": 2, "imagen": "url"}]
+                {"nombre": "Manualidades", "descripcion": "Organiza una sesión de manualidades para tus hijos y sus amigos. Cada participante lleva los implementos necesarios. Tú eliges el lugar. Cada participante requiere de la compañía de un adulto responsable.", "tipo_de_actividad_id": 2, "imagen": "url"},
+                {"nombre": "Lectura de Cuentos", "descripcion": "Planea una sesión de lectura o cuentacuentos para tus hijos y sus amigos. Cada participante puede llevar un libro. Tú eliges el lugar. Cada participante requiere de la compañía de un adulto responsable.", "tipo_de_actividad_id": 2, "imagen": "url"},
+                {"nombre": "Juegos de Mesa/Puzzles", "descripcion": "Organiza una sesión de juegos de mesa  y/o puzzles para tus hijos y sus amigos. Cada participante puede llevar un juego/puzzle. Tú eliges el lugar. Cada participante requiere de la compañía de un adulto responsable.", "tipo_de_actividad_id": 2, "imagen": "url"},
+                {"nombre": "Juego Libre en Interior", "descripcion": "Tus hijos y sus amigos podrán jugar libremente. Tú eliges el lugar. Cada participante requiere de la compañía de un adulto responsable.",
+                 "tipo_de_actividad_id": 2, "imagen": "url"}]
             for obj_actividad in actividades:
                 actividad = Actividad()
                 actividad.nombre = obj_actividad["nombre"]
@@ -69,16 +70,15 @@ def setup_commands(app):
     @app.cli.command("insert-imagenes_actividades")
     def insert_imagenes_data():
         imagenes_actividades = [
-            "https://res.cloudinary.com/dfcsm1fzk/image/upload/v1676627381/PlayDating/1_uvjrwq_z3acjb.png",
             "https://res.cloudinary.com/dfcsm1fzk/image/upload/v1676627381/PlayDating/2_lsrmht_ug8so2.png",
-            "https://res.cloudinary.com/dfcsm1fzk/image/upload/v1676627381/PlayDating/3_pfaftn_tjq6by.png",
             "https://res.cloudinary.com/dfcsm1fzk/image/upload/v1676627381/PlayDating/4_fcaocu_ltzazd.png",
             "https://res.cloudinary.com/dfcsm1fzk/image/upload/v1676627381/PlayDating/5_y0uy6z_i35lj1.png",
-            "https://res.cloudinary.com/dfcsm1fzk/image/upload/v1676627381/PlayDating/6_qqntku_cb1xgr.png",
-            "https://res.cloudinary.com/dfcsm1fzk/image/upload/v1676627382/PlayDating/7_iaiefz_c49cif.png",
+            "https://res.cloudinary.com/dfcsm1fzk/image/upload/v1676627382/PlayDating/9_eqsdfm_juoagg.png",
+            "https://res.cloudinary.com/dfcsm1fzk/image/upload/v1676627381/PlayDating/1_uvjrwq_z3acjb.png",
             "https://res.cloudinary.com/dfcsm1fzk/image/upload/v1676627382/PlayDating/8_vbix7b_unorpc.png",
-            "https://res.cloudinary.com/dfcsm1fzk/image/upload/v1676627382/PlayDating/9_eqsdfm_juoagg.png"
-
+            "https://res.cloudinary.com/dfcsm1fzk/image/upload/v1676627381/PlayDating/3_pfaftn_tjq6by.png",
+            "https://res.cloudinary.com/dfcsm1fzk/image/upload/v1676627382/PlayDating/7_iaiefz_c49cif.png",
+            "https://res.cloudinary.com/dfcsm1fzk/image/upload/v1676627381/PlayDating/6_qqntku_cb1xgr.png"
         ]
 
         todas_actividades = Actividad.query.all()

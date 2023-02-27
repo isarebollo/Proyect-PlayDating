@@ -95,8 +95,8 @@ export const Perfil = (props) => {
     };
     return (
         <>
-            <div className="container  m-5 perfil" id="perfil">
-                <div className="row g-1">
+            <div className="container  m-5 perfil border rounded ">
+                <div className="row">
                     <div className="col-md-6 my-3">
                         <label className="form-label">Nombre Completo: </label>
                         <span><strong> {datos.nombre}</strong></span>
@@ -106,7 +106,7 @@ export const Perfil = (props) => {
                         <span><strong> {datos.email}</strong></span>
                     </div>
                     <div className="col-md-6">
-                        <label className="form-label">Tus hij@s</label>
+                        <label className="form-label">Nombre de tus hij@s</label>
                         <div>
                             <FormularioHijos />
                         </div>
@@ -124,6 +124,7 @@ export const Perfil = (props) => {
                             ></input>
                         </div>
                     </div>
+                    
                     <div className="col-md-4">
                         <label className="form-label">Provincia</label>
                         <select
@@ -186,14 +187,14 @@ export const Perfil = (props) => {
                         </select>
                     </div>
                     {/* -------------------------------------------------------------------------- */}
-                    <div className="col-12 text-center">
+                    <div className="col-12 mb-4 text-center">
                         <button
                             onClick={onSave}
                             
                             type="submit"
-                            className="btn btn-success"
+                            className="button"
                         >
-                            Guardar
+                            Guardar datos
                         </button>
                     </div>
                 </div>

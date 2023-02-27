@@ -53,12 +53,12 @@ export const Carrusel = () => {
                 }
             </Carousel>
             <div>
+                <a className="nav-link" href="/registro">
+                    <button className="button  mx-auto mb-4" id="buttonCarrusel">
 
-                <button className="button mx-auto mb-4" id="buttonCarrusel"> 
+                        REGISTRATE PARA MAS INFORMACION
 
-                    REGISTRATE PARA MAS INFORMACION
-
-                </button>
+                    </button></a>
             </div>
 
 

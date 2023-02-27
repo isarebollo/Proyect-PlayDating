@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./../../../../App.css"
 import "./../Mi Perfil/MiPerfil.css"
 import { MisFavoritos } from "./../../component/Otros/MisFavoritos.jsx";
-import {Perfil} from "./../../component/Perfil/Perfil"
+import { Perfil } from "./../../component/Perfil/Perfil"
 import { MisInvitaciones } from "./../../component/Otros/MisInvitaciones.jsx";
 
 export const Miperfil = () => {
@@ -13,19 +13,19 @@ export const Miperfil = () => {
   };
   return (
     <>
-     
-      <div className="container mb-5" id="miperfil">
-        <div className="mt-4 pt-3 text-center">
-          <h3 >¡Hola {nombre}!</h3>
+
+      <div className="container mb-5 ">
+        <div className="mt-4 pt-3 text-center ">
+          <h2 >¡Hola {nombre}!</h2>
         </div>
         <div className="row justify-content-center ">
-          <div className="col">
-            <Perfil notificarNombre={notificarNombreUsuario} />
-          </div>
-          <div className="col m-5 ">
-            <MisFavoritos />
-            <MisInvitaciones />
-          </div>
+
+          <Perfil notificarNombre={notificarNombreUsuario} />
+        </div>
+
+        <div className="d-flex flex-row justify-content-center">
+          <div className="p-2 "><MisFavoritos /></div>
+          <div className="p-2 "><MisInvitaciones /></div>
         </div>
       </div>
     </>

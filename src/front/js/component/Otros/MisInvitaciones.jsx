@@ -36,12 +36,12 @@ export const MisInvitaciones = () => {
 
   return (
     <>
-      <div className="container mx-auto" id="favoritosPerfil">
-        <div className="card mb-4" id="cardFavoritos">
+      <div className="container mx-auto " >
+        <div className="card mb-4 border " >
           <div className="card-header">
-            <h5 className="text-center" id="tituloFavorito">
+            <h5 className="text-center" >
               Mis Invitaciones
-              <i className="fa fa-envelope ms-3" id="favoritoPerfil"></i>
+           
             </h5>
           </div>
           <ul className="list-group list-group-flush">

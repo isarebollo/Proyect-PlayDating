@@ -108,7 +108,7 @@ export const Login = (props) => {
                         <Button
                             variant="primary"
                             onClick={() => {
-                                if (navegar) {
+                                if (modalManager) {
                                     navigate("/register");
                                 } else {
                                     handleClose();

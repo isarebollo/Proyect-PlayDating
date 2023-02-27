@@ -64,7 +64,7 @@ export const Registro = () => {
 
         const data = await resp.json();
 
-        if (data.message === "Usuario creado exitosamente") {
+        if (data.message === "Usuario creado correctamente ") {
             modalManager(data.message, true);
         } else {
             modalManager(data.message, false);
@@ -112,8 +112,6 @@ export const Registro = () => {
                                 value={password} type="password" required="required"></input>
                             <span>Contraseña</span>
                         </div>
-
-
 
                         <div className="inputBoxRegistro3">
 
@@ -219,9 +217,9 @@ export const Registro = () => {
                 <Modal.Footer>
                     <Button
 
-                        variant="botonmodalazul"
+                        variant="button"
                         onClick={() => {
-                            if (navegar) {
+                            if (modalManager) {
                                 navigate("/login");
                             } else {
                                 handleClose();
