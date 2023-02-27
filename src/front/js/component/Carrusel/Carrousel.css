@@ -11,3 +11,10 @@ font-size: 15px;
 }
 
 
+#buttonCarrusel{
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+}

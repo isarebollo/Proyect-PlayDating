@@ -59,7 +59,7 @@ export const Eventos = () => {
         <>
 
             <div className="container">
-                <div className="text-center p-3 ">
+                <div className="text-center p-3  ">
                     <h3>Participa En Los Eventos Creados En Tu Zona</h3>
                 </div>
                 {eventos.length === 0 && (
@@ -69,7 +69,7 @@ export const Eventos = () => {
                 )}
 
 
-                <div className="row row-cols-1 row-cols-md-3 g-4 ">
+                <div className="row row-cols-1 row-cols-md-3 g-4  ">
 
 
                     {sortedArray(eventos).map((evento, index) => {

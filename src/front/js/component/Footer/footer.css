@@ -5,6 +5,7 @@
   font-size:15px;
   line-height:24px;
   color:#737373;
+  height: fit-content;
 }
 .site-footer hr
 {
@@ -78,14 +79,19 @@
   {
     margin-bottom:30px
   }
+ 
 }
 @media (max-width:767px)
 {
+   .footer-info{
+
+    display: none;
+  }
   .site-footer
   {
     padding-bottom:0
-  }
-  .site-footer .copyright-text,.site-footer .social-icons
+  } 
+   .site-footer .copyright-text,.site-footer .social-icons
   {
     text-align:center
   }

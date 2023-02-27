@@ -55,43 +55,34 @@ export const ListMisEventos = (props) => {
     return (
         <>
             <div className="list-group">
-                <div className=" text-center list-group-item mb-4 list-group-item-action" aria-current="true">
+                <div className=" text-center list-group-item mb-4 list-group-item-action border rounded" aria-current="true">
 
                     <div className="row row-cols-1 row-cols-md-3 align-items-center">
                         <img className="imgListMisEventos" src={props.src} alt={props.name} />
                         <h4>{props.name}</h4>
-
                         <p className=" date">{date}</p>
-
                     </div>
-
-
                     <div className="row row-cols-1 row-cols-md-3 align-items-center">
-
-
                         <p>
                             Max participantes: {props.max_participantes}
                         </p>
                         <p >
-                           Plazas disponibles: {props.cupos_disponibles}
+                            Plazas disponibles: {props.cupos_disponibles}
                         </p>
                         {props.estado == "Cancelado" || props.estado == "Cerrado" ? (
                             <p className="text-danger">{props.estado}</p>
                         ) : (
                             <p className="text-success">{props.estado}</p>
                         )}
-
-
                     </div>
 
                     {props.creador ==
                         parseInt(localStorage.getItem("usuario"), 10) ? (
-                        <div className="footer bg-body">
+                        <div className="footer">
                             <Link to={props.route}>
                                 <button
-
                                     href="#"
-                                    className="btn btn-info"
+                                    className="button"
                                     role="button"
                                 >
                                     Ver Detalles
@@ -107,7 +98,7 @@ export const ListMisEventos = (props) => {
                                     }}
 
                                     href="#"
-                                    className="btn btn-danger m-1"
+                                    className="btn-danger m-1"
                                     role="button"
                                 >
                                     Cancelar Evento
@@ -155,7 +146,7 @@ export const ListMisEventos = (props) => {
                                     <button
 
                                         href="#"
-                                        className="btn"
+                                        className="button"
                                         role="button"
                                     >
                                         Ver Detalles

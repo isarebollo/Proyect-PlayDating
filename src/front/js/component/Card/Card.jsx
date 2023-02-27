@@ -6,8 +6,8 @@ import "./../Card/Card.css"
 import "./../../../../App.css"
 export const Card = (props) => {
     const clase = props.forzarHeight
-        ? "card text-center h-50"
-        : "card text-center m-3";
+        ? "card text-center h-50 "
+        : "card text-center m-3 border rounded";
 
     const cardId = props.homeCard
         ? "cardHome"

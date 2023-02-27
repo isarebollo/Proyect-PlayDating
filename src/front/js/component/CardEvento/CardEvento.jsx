@@ -56,12 +56,12 @@ export const CardEvento = (props) => {
       <div className="container">
 
         <div className="col">
-          <div className="card h-100 mb-4 text-center">
+          <div className="card h-100 mb-4 text-center border rounded">
             <div className="card-footer">
-              <small className="text-muted">{props.estado}</small>
+              <small className="text-muted fs-5">{props.estado}</small>
             </div>
 
-            <img src={props.src} className="card-img-top" alt="..." />
+            <img src={props.src} className="card-img-top" alt={props.name} />
             <div className="card-body">
               <h5 className="card-title">{props.name}</h5>
 
@@ -77,7 +77,7 @@ export const CardEvento = (props) => {
                     <button
 
                       href="#"
-                      className="btn btn-info"
+                      className="button"
                       role="button"
                     >
                       Ver Detalles
@@ -111,7 +111,7 @@ export const CardEvento = (props) => {
                       <button
                      
                         href="#"
-                        className="btn"
+                        className="button"
                         role="button"
                       >
                         Ver Detalles
@@ -136,12 +136,12 @@ export const CardEvento = (props) => {
                 </div>
               ) : (
                 <div>
-                  <div className="card-footer bg-body">
+                  <div className="card-footer">
                     <Link to={props.route}>
                       <button
 
                         href="#"
-                        className="btn btn-info"
+                        className="button"
                         role="button"
                       >
                         Ver Detalles

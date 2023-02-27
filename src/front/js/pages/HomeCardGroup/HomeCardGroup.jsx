@@ -19,7 +19,7 @@ export const HomeCardGroup = () => {
       obtenerDatosPerfil()
         .then((data) => {
           setDatosUsuario(data.data);
-          console.log(data);
+          
         })
         .catch((error) => {
           const errorStr = JSON.stringify(error);
@@ -33,7 +33,7 @@ export const HomeCardGroup = () => {
       <div className="container-fluid">
         {datosUsuario.nombre && (
           <div className="mt-2 pt-2 mb-1">
-            <h3 id="bienvenida">¡Bienvenid@ {datosUsuario.nombre}!</h3>
+            <h3 className="text-center">¡Bienvenid@ {datosUsuario.nombre}!</h3>
           </div>
         )}
         <div className="pb-4 mb-4">

@@ -72,7 +72,7 @@ export const ComentariosEvento = (props) => {
       <div className="container">
         <div className="row">
           <div className="col-sm-6 mx-auto mb-3">
-            <div className="input-group">
+            <div className="input-group border ">
               <textarea
                 onChange={(e) => updateComentario(e, setNuevoComentario)}
                 value={nuevoComentario}
@@ -80,7 +80,7 @@ export const ComentariosEvento = (props) => {
                 placeholder="Deja un comentario..."
               ></textarea>
               <button
-                className="btn btn-primary"
+                className="button"
                 id="buttonGuardar"
                 onClick={() => {
                   onDejarComentario(); setNuevoComentario("");

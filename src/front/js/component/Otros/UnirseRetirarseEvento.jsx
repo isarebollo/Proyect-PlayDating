@@ -101,8 +101,8 @@ export const UnirseRetirarseEvento = (props) => {
       <div className="text-center">
 
         <button
-          id="buttonCancelarEvento"
-          className="btn"
+          
+          className="btn btn-danger"
           onClick={() => {
             onRetirarse();
           }}

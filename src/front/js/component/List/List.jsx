@@ -10,8 +10,8 @@ export const List = (props) => {
     return (
 
         <>
-            <div className="list-group">
-                <div className=" text-center list-group-item m-3 list-group-item-action" aria-current="true">
+            <div className="list-group ">
+                <div className=" text-center list-group-item m-3 list-group-item-action border rounded" aria-current="true">
 
                     <div className="d-flex w-100 justify-content-between">
                         <img src={props.src} alt="" />

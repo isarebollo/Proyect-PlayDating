@@ -54,7 +54,7 @@ export const Carrusel = () => {
             </Carousel>
             <div>
 
-                <button className="button"> 
+                <button className="button mx-auto mb-4" id="buttonCarrusel"> 
 
                     REGISTRATE PARA MAS INFORMACION
 

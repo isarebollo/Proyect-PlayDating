@@ -46,22 +46,24 @@ export const Login = (props) => {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                     Authorization: `Bearer ${localStorage.token}`,
+                    Authorization: `Bearer ${localStorage.token}`,
                 },
                 body,
             });
 
-            console.log(resp)
+
             if (!resp.ok) {
                 modalManager("Error en el servidor", false);
             }
             const data = await resp.json();
-            console.log(data)
+
 
             if (data.data !== undefined) {
                 localStorage.setItem("token", data.data);
                 localStorage.setItem("usuario", data.usuario_id);
-                navigate("/eventos");
+
+                navigate("/home");
+                window.location.reload();
             } else {
                 modalManager("El usuario no existe", true);
             }
@@ -69,81 +71,54 @@ export const Login = (props) => {
     };
     return (
         <>
-            <div id="contenedor">
 
-                <div id="contenedorcentrado">
-                    <div id="login">
-                        <form id="loginform">
-                            <label>Usuario</label>
-                            <input onChange={(e) => updateText(e, setEmail)}
-                                value={email}
-                                id="usuario"
-                                type="text"
-                                name="usuario"
-                                placeholder="Usuario"
-                                autoComplete="userName"
-                                required></input>
-
-                            <label >Contraseña</label>
-                            <input onChange={(e) => updateText(e, setPassword)}
-                                value={password}
-                                id="password"
-                                type="password"
-                                placeholder="Contraseña"
-                                autoComplete="current-password"
-                                name="password"
-                                required></input>
-
-                            <button onClick={onSave}
-                                type="submit"
-
-                                name="Ingresar">Login</button>
-                        </form>
-
+            <div className="container containerLogin m-5 ">
+                <div className="card cardLogin">
+                    <a className="singup">Login</a>
+                    <div className="inputBox1">
+                        <input onChange={(e) => updateText(e, setEmail)}
+                            value={email} type="text" required="required"></input>
+                        <span className="user">Email</span>
                     </div>
-                    <div id="derecho">
-                        <div className="titulo">
-                            Bienvenido
-                        </div>
-                        <hr />
-                        <div className="pie-form">
-                            {/* <a href="#">¿Perdiste tu contraseña?</a> */}
-                            <Link to={"/registro"}><a href="#">¿No tienes Cuenta? Registrate</a>
-                            </Link>
 
-                            <hr />
-                            <a href="/">« Volver</a>
-                        </div>
+
+                    <div className="inputBox">
+                        <input onChange={(e) => updateText(e, setPassword)}
+                            value={password} type="password" required="required"></input>
+                        <span>Password</span>
                     </div>
-                    <Modal
-                        show={show}
-                        onHide={handleClose}
-                        backdrop="static"
-                        keyboard={false}
-                        aria-labelledby="contained-modal-title-vcenter"
-                        centered
-                    >
-                        <Modal.Header closeButton>
-                            <Modal.Title>Login</Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>{textoAlerta}</Modal.Body>
-                        <Modal.Footer>
-                            <Button
-                                variant="primary"
-                                onClick={() => {
-                                    if (navegar) {
-                                        navigate("/register");
-                                    } else {
-                                        handleClose();
-                                    }
-                                }}
-                            >
-                                OK
-                            </Button>
-                        </Modal.Footer>
-                    </Modal>
+
+                    <button onClick={onSave} className="enter">Enter</button>
+
                 </div>
 
+                <Modal
+                    show={show}
+                    onHide={handleClose}
+                    backdrop="static"
+                    keyboard={false}
+                    aria-labelledby="contained-modal-title-vcenter"
+                    centered
+                >
+                    <Modal.Header closeButton>
+                        <Modal.Title>Login</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>{textoAlerta}</Modal.Body>
+                    <Modal.Footer>
+                        <Button
+                            variant="primary"
+                            onClick={() => {
+                                if (navegar) {
+                                    navigate("/register");
+                                } else {
+                                    handleClose();
+                                }
+                            }}
+                        >
+                            OK
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
             </div>
 
         </>

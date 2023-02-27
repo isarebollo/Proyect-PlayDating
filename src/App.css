@@ -7,7 +7,10 @@
   font-family: 'Montserrat', sans-serif;
   
 }
+body{
 
+  background-color: #ffffff;
+}
 
 .button {
   padding: 1em 2em;
@@ -24,14 +27,14 @@
   outline: 2px solid #2c9caf;
 }
 
-button:hover {
+.button:hover {
   color: #ffffff;
   transform: scale(1.1);
   outline: 2px solid #70bdca;
   box-shadow: 4px 5px 17px -4px #268391;
 }
 
-button::before {
+.button::before {
   content: "";
   position: absolute;
   left: -50px;
@@ -44,6 +47,13 @@ button::before {
   transition: width 1000ms;
 }
 
-button:hover::before {
+.button:hover::before {
   width: 250%;
+}
+
+
+.border{
+
+  outline: 2px solid #2c9caf;
+
 }

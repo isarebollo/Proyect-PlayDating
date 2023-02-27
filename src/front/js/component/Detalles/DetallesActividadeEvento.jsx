@@ -40,7 +40,7 @@ export const DetallesActividadEvento = (props) => {
 
   return (
     <>
-      <div className="card" >
+      <div className="card border rounded" >
         <div className="card-title">
           <h5 className="text-center">
             <strong>{props.nombre}</strong>
