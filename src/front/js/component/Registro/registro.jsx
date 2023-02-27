@@ -75,44 +75,58 @@ export const Registro = () => {
 
     return (
         <>
-            <div id="contenedor-registro">
-                <div id="contenedorcentradoregistro">
-                    <div id="registro">
-                        <h2 className="titulo-registro" >Registro</h2>
-                        <form id="loginform">
-                            <label >Nombre</label>
+
+            <div className=" container contenedorcentradoregistro">
+                <div className="cardRegistro m-5">
+                    <a className="tituloRegistro" >Registro</a>
+                    <form >
+                        <div className="inputBoxRegistro">
+
+
+
                             <input onChange={(e) => updateText(e, setNombre)}
                                 value={nombre}
                                 id="usuario"
                                 type="text"
-                                placeholder="Nombre"
+
                                 required></input>
+                            <span >Nombre</span>
+                        </div>
+                        <div className="inputBoxRegistro1">
 
 
-                            <label >Email</label>
                             <input onChange={(e) => updateText(e, setEmail)}
                                 value={email}
                                 id="email"
                                 type="email"
                                 autoComplete="username"
-                                placeholder="Usuario"
-                                required></input>
 
-                            <label >Contraseña</label>
+                                required></input>
+                            <span >Email</span>
+
+                        </div>
+
+                        <div className="inputBoxRegistro2">
+
                             <input onChange={(e) => updateText(e, setPassword)}
-                                value={password}
-                                id="password"
-                                type="password"
-                                autoComplete="current-password"
-                                placeholder="Contraseña"
-                                required></input>
+                                value={password} type="password" required="required"></input>
+                            <span>Contraseña</span>
+                        </div>
 
-                            <label >Nº hijos</label>
+
+
+                        <div className="inputBoxRegistro3">
+
+
                             <input onChange={(e) => updateText(e, setNumero_hijos)}
                                 value={numero_hijos}
                                 type="number"
-                                placeholder="Nº hijos"
+
                                 required></input>
+                            <span >Nº hijos</span>
+
+                        </div>
+                        <div className="inputBoxRegistro4">
 
                             <label className="form-label">Provincia</label>
                             <select
@@ -174,46 +188,51 @@ export const Registro = () => {
                                 <option value="Zamora">Zamora</option>
                                 <option value="Zaragoza">Zaragoza</option>
                             </select>
+                        </div>
 
-                            <button onClick={onSave}
-                                type="submit"
-                                title="Ingresar"
-                                name="Ingresar">Login</button>
-                        </form>
 
-                    </div>
+
+
+                        <button onClick={onSave}
+                            className="enterRegistro"
+                            type="submit"
+                            title="Ingresar"
+                            name="Ingresar">Guardar</button>
+                    </form>
 
                 </div>
 
-                <Modal
-                    show={show}
-                    onHide={handleClose}
-                    backdrop="static"
-                    keyboard={false}
-                    aria-labelledby="contained-modal-title-vcenter"
-                    centered
-                >
-                    <Modal.Header closeButton>
-                        <Modal.Title>Registro</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>{textoAlerta}</Modal.Body>
-                    <Modal.Footer>
-                        <Button
-
-                            variant="botonmodalazul"
-                            onClick={() => {
-                                if (navegar) {
-                                    navigate("/login");
-                                } else {
-                                    handleClose();
-                                }
-                            }}
-                        >
-                            OK
-                        </Button>
-                    </Modal.Footer>
-                </Modal>
             </div>
+
+            <Modal
+                show={show}
+                onHide={handleClose}
+                backdrop="static"
+                keyboard={false}
+                aria-labelledby="contained-modal-title-vcenter"
+                centered
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title>Registro</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>{textoAlerta}</Modal.Body>
+                <Modal.Footer>
+                    <Button
+
+                        variant="botonmodalazul"
+                        onClick={() => {
+                            if (navegar) {
+                                navigate("/login");
+                            } else {
+                                handleClose();
+                            }
+                        }}
+                    >
+                        OK
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+
 
         </>
 
