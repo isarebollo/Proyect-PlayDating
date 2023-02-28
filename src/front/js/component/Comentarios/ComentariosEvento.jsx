@@ -28,18 +28,18 @@ export const ComentariosEvento = (props) => {
     const favoritos = props.favoritos
   
     return comentarios.map((comentario) => {
-      const autorEsFavorito = favoritos.find(favorito =>  comentario.usuario_id.id === favorito.usuario_favorito.id) != undefined
+      const autorEsFavorito = favoritos.find(favorito =>  comentario.usuario_id.id === favorito.usuario_favorito.id) !== undefined
       return {...comentario, esFavorito: autorEsFavorito}
       })
       }
   
 
   const notificarEliminacionComentario = (comentarioId) => {
-    setComentarios(comentarios.filter((comentario)=>comentarioId != comentario.id))
+    setComentarios(comentarios.filter((comentario)=>comentarioId !== comentario.id))
   }
 
   const onDejarComentario = () => {
-    if (nuevoComentario != ""){
+    if (nuevoComentario !== ""){
     dejarComentario(eventoId, nuevoComentario)
       .then((data) => {
        setComentarios(comentarios => [...comentarios, data.data])

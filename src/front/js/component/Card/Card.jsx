@@ -24,7 +24,7 @@ export const Card = (props) => {
                     className="card-img-top img-fluid rounded"
                     id={imagenId}
                     src={props.src}
-                    alt="Card image cap"
+                    alt="Card imagen"
                 ></img>
                 <div className="card-body">
                     <h5 className="card-title">{props.name}</h5>

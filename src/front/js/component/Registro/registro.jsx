@@ -78,7 +78,7 @@ export const Registro = () => {
 
             <div className=" container contenedorcentradoregistro">
                 <div className="cardRegistro m-5">
-                    <a className="tituloRegistro" >Registro</a>
+                    <p className="tituloRegistro" >Registro</p>
                     <form >
                         <div className="inputBoxRegistro">
 

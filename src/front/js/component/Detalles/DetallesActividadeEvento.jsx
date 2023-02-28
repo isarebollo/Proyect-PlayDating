@@ -15,7 +15,7 @@ export const DetallesActividadEvento = (props) => {
     } else {
       participantes = listaParticipantes.map((participante, index) => {
 
-        if (participante.id == localStorage.getItem("usuario")) {
+        if (participante.id === localStorage.getItem("usuario")) {
           return (
             <li key={index}>
               Te has unido con {participante.cantidad} participante/s{" "}
@@ -69,6 +69,7 @@ export const DetallesActividadEvento = (props) => {
         <img
           src={props.imagen}
           className="img-fluid card-img"
+          alt={props.name}
         />
 
       </div>

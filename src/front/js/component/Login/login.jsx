@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { HOSTNAME } from "./../config.js";
 
 import Modal from "react-bootstrap/Modal";
@@ -9,7 +9,7 @@ import "../Login/login.css"
 import "./../../../../App.css"
 
 
-export const Login = (props) => {
+export const Login = () => {
     const navigate = useNavigate();
 
     const [email, setEmail] = useState("");

@@ -11,7 +11,7 @@ import { HOSTNAME } from "../../component/config";
 import { InvitarUsuario } from "./../../component/Otros/InvitarUsuario";
 import { invitarUsuario } from "../../component/api";
 
-export const CrearEvento = (props) => {
+export const CrearEvento = () => {
   const navigate = useNavigate();
   useEffect(() => {
     if (!localStorage.getItem("token")) {
@@ -100,7 +100,7 @@ export const CrearEvento = (props) => {
     if (resp.ok) {
       setModal(true);
       
-      if (usuarioAInvitar != "") {
+      if (usuarioAInvitar !== "") {
         try {
           const resp2 = await invitarUsuario(usuarioAInvitar, data.data.id);
           alert("invitacion enviada");

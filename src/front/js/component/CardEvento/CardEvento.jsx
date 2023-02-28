@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import propTypes from "prop-types";
 import "./CardEvento.css"
 import "./../../../../App.css"
@@ -70,15 +70,14 @@ export const CardEvento = (props) => {
             <div>
 
 
-              {props.creador ==
+              {props.creador ===
                 parseInt(localStorage.getItem("usuario"), 10) ? (
                 <div className="card-footer bg-body">
                   <Link to={props.route}>
                     <button
-
                       href="#"
                       className="button"
-                      role="button"
+                      
                     >
                       Ver Detalles
                     </button>
@@ -100,10 +99,10 @@ export const CardEvento = (props) => {
                     </button>
                   )}
                 </div>
-              ) : undefined !=
+              ) : undefined !==
                 props.participantes.find(
                   (participante) =>
-                    participante.id == localStorage.getItem("usuario")
+                    participante.id === localStorage.getItem("usuario")
                 ) ? (
                 <div>
                   <div className="card-footer bg-body">
@@ -112,7 +111,7 @@ export const CardEvento = (props) => {
                      
                         href="#"
                         className="button"
-                        role="button"
+                        
                       >
                         Ver Detalles
                       </button>
@@ -142,7 +141,7 @@ export const CardEvento = (props) => {
 
                         href="#"
                         className="button"
-                        role="button"
+                        
                       >
                         Ver Detalles
                       </button>

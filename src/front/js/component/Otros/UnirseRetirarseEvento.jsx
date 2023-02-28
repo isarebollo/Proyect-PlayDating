@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
@@ -44,9 +44,9 @@ export const UnirseRetirarseEvento = (props) => {
 
   const comprobarUsuarioEnEvento = () => {
     let usuarioEnEvento = props.participantes.find(
-      (participante) => participante.id == localStorage.getItem("usuario")
+      (participante) => participante.id === localStorage.getItem("usuario")
     );
-    return usuarioEnEvento != undefined;
+    return usuarioEnEvento !== undefined;
   };
 
   const noHaycupos = () => {
@@ -158,17 +158,17 @@ export const UnirseRetirarseEvento = (props) => {
   };
 
   const pintarBotonesRetiroUnirse = () => {
-    if (props.estado != "Lleno" && comprobarUsuarioEnEvento()) {
+    if (props.estado !== "Lleno" && comprobarUsuarioEnEvento()) {
       return retirarse();
     } else if (
-      props.estado != "Lleno" &&
+      props.estado !== "Lleno" &&
       !comprobarUsuarioEnEvento()
     ) {
       return unirse();
-    } else if (props.estado == "Lleno" && comprobarUsuarioEnEvento()) {
+    } else if (props.estado === "Lleno" && comprobarUsuarioEnEvento()) {
       return noHayCuposRetirarse();
     } else if (
-      props.estado == "Lleno" &&
+      props.estado === "Lleno" &&
       !comprobarUsuarioEnEvento()
     ) {
       return noHaycupos();
@@ -184,7 +184,7 @@ export const UnirseRetirarseEvento = (props) => {
 
   return (
     <>
-      {props.estado == "Cancelado" ||
+      {props.estado === "Cancelado" ||
         !esEventoFuturo(props.fecha_y_hora) ? (
         <p>
           <strong>Este evento ya no está disponible</strong>

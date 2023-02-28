@@ -1,7 +1,7 @@
-import React, { useEffect, useState, useContext } from "react";
-import { Context } from "./../../store/appContext";
+import React, { useEffect, useState } from "react";
+
 import { HOSTNAME } from "../config.js";
-import { config } from "../config.js";
+
 import Carousel from 'react-bootstrap/Carousel';
 import "./../Carrusel/Carrousel.css"
 import "./../../../../App.css"
@@ -43,6 +43,7 @@ export const Carrusel = () => {
                         <img
                             className=" imagenCarrusel mx-auto d-block w-50 "
                             src={actividad.imagen}
+                            alt="Actividad"
                         />
                         <Carousel.Caption>
                             <h2>{actividad.nombre}</h2>

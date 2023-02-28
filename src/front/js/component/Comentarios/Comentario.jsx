@@ -37,7 +37,7 @@ export const Comentario = (props) => {
           </div>
           <div className="col-3 text-end">
 
-            {props.usuario.id == localStorage.getItem("usuario") && (
+            {props.usuario.id === localStorage.getItem("usuario") && (
               <div className="col">
                 <button
                   className="buttonRedTrash mb-3 fs-4"
@@ -49,7 +49,7 @@ export const Comentario = (props) => {
                 </button>
               </div>
             )}
-            {props.usuario.id != localStorage.getItem("usuario") && (
+            {props.usuario.id !== localStorage.getItem("usuario") && (
               <button
                 className="buttonYellowStar mb-3 fs-4"
                 data-bs-toggle="tooltip"

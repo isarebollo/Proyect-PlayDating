@@ -40,11 +40,11 @@ export const DetalleEvento = () => {
         }
     }, []);
 
-    const eventoEscojido = eventos.find((evento) => eventoId == evento.id);
+    const eventoEscojido = eventos.find((evento) => eventoId === evento.id);
 
     const participantesConFavoritos = (participantes) => {
         return participantes.map(participante => {
-            const esParticipanteFavorito = favoritos.find(favorito => favorito.usuario_favorito.id === participante.id) != undefined
+            const esParticipanteFavorito = favoritos.find(favorito => favorito.usuario_favorito.id === participante.id) !== undefined
             return { ...participante, esFavorito: esParticipanteFavorito }
         })
     }
@@ -78,7 +78,7 @@ export const DetalleEvento = () => {
     const onAgregarOEliminarFavorito = (usuarioFavoritoId) => {
         if (
             favoritos.find(
-                (favorito) => favorito.usuario_favorito.id == usuarioFavoritoId
+                (favorito) => favorito.usuario_favorito.id === usuarioFavoritoId
             )
         ) {
             onEliminarFavorito(usuarioFavoritoId);
@@ -91,7 +91,7 @@ export const DetalleEvento = () => {
         <>
 
             <div className="container " >
-                {eventoEscojido != undefined &&
+                {eventoEscojido !== undefined &&
 
                     <div className="mx-auto mt-3">
 
@@ -126,7 +126,7 @@ export const DetalleEvento = () => {
                                     />
                                 </div>
                             </div>
-                            {eventoEscojido.estado != "Cancelado" && (
+                            {eventoEscojido.estado !== "Cancelado" && (
                                 <div>
                                     <hr></hr>
                                     <h3 className="text-center">Deja tu comentario aqui</h3>
@@ -140,7 +140,7 @@ export const DetalleEvento = () => {
                         </div>
                     </div>
                 }
-                {eventoEscojido == undefined &&
+                {eventoEscojido === undefined &&
                     <h2 className="m-4">...Cargando evento</h2>
                 }
             </div>

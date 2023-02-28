@@ -66,7 +66,7 @@ export const ListMisEventos = (props) => {
                         <p >
                             Plazas disponibles: {props.cupos_disponibles}
                         </p>
-                        {props.estado == "Cancelado" || props.estado == "Cerrado" ? (
+                        {props.estado === "Cancelado" || props.estado === "Cerrado" ? (
                             <p className="text-danger">{props.estado}</p>
                         ) : (
                             <p className="text-success">{props.estado}</p>
@@ -78,14 +78,14 @@ export const ListMisEventos = (props) => {
                         <div className="footer">
                             <Link to={props.route}>
                                 <button
-                                    href="#"
+                                    
                                     className="button"
-                                    role="button"
+                                    
                                 >
                                     Ver Detalles
                                 </button>
                             </Link>
-                            {props.estado !== "Cancelado" && props.estado != "Cerrado" && (
+                            {props.estado !== "Cancelado" && props.estado !== "Cerrado" && (
                                 <button
                                     onClick={() => {
                                         setModal1(true);
@@ -94,9 +94,9 @@ export const ListMisEventos = (props) => {
                                         );
                                     }}
 
-                                    href="#"
+                                    
                                     className="buttonRed m-3"
-                                    role="button"
+                                    
                                 >
                                     Cancelar Evento
                                 </button>
@@ -105,16 +105,16 @@ export const ListMisEventos = (props) => {
                     ) : undefined !==
                         props.participantes.find(
                             (participante) =>
-                                participante.id == localStorage.getItem("usuario")
+                                participante.id === localStorage.getItem("usuario")
                         ) ? (
                         <div>
                             <div className="footer bg-body">
                                 <Link to={props.route}>
                                     <button
 
-                                        href="#"
+                                        
                                         className="btn"
-                                        role="button"
+                                        
                                     >
                                         Ver Detalles
                                     </button>
