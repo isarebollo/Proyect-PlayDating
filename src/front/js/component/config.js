@@ -1,4 +1,4 @@
-export const HOSTNAME ="http://127.0.0.1:5000/"
+export const HOSTNAME ="https://63fdf220c330650008a4f30f--playdating.netlify.app/"
 
 export const config = {
 
