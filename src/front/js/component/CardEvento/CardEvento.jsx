@@ -58,7 +58,7 @@ export const CardEvento = (props) => {
         <div className="col">
           <div className="card h-100 mb-4 text-center border rounded">
             <div className="card-footer">
-              <small className="text-muted fs-5">{props.estado}</small>
+              <small className="text-muted fs-5"> Creador: {props.creador} <br />{props.estado}</small>
             </div>
 
             <img src={props.src} className="card-img-top" alt={props.name} />
@@ -93,7 +93,7 @@ export const CardEvento = (props) => {
                       }}
 
                       href="#"
-                      className="btn m-1 btn-danger"
+                      className="buttonRed m-3 "
                       role="button"
                     >
                       Cancelar Evento
@@ -121,7 +121,7 @@ export const CardEvento = (props) => {
                       props.estado !== "Cerrado" && (
                         <button
 
-                          className="btn m-1"
+                          className="buttonRed mt-2"
                           onClick={() => {
                             setModal3(true);
                             setTextoModal(
@@ -164,7 +164,7 @@ export const CardEvento = (props) => {
           <Modal.Body>{textoModal}</Modal.Body>
           <Modal.Footer>
             <Button
-              className="btn-info"
+              className="button mx-auto"
               variant="botonmodalazul"
               onClick={() => {
                 onCancel();
@@ -174,7 +174,7 @@ export const CardEvento = (props) => {
               Confirmar
             </Button>
             <Button
-              className="btn-danger"
+              className="buttonRed mx-auto"
               variant="botonmodalrojo"
               onClick={() => {
                 setModal1(false);
@@ -192,7 +192,7 @@ export const CardEvento = (props) => {
           <Modal.Body>{textoModal}</Modal.Body>
           <Modal.Footer>
             <Button
-              className="botonmodalazul"
+              className="button mx-auto"
               variant="botonmodalazul"
               onClick={() => {
                 window.location.reload(false);
@@ -210,7 +210,7 @@ export const CardEvento = (props) => {
           <Modal.Body>{textoModal}</Modal.Body>
           <Modal.Footer>
             <Button
-              className="botonmodalazul"
+              className="button mx-auto"
               variant="botonmodalazul"
               onClick={() => {
                 onRetirarse();
@@ -219,7 +219,7 @@ export const CardEvento = (props) => {
               Confirmar
             </Button>
             <Button
-              className="botonmodalrojo"
+              className="buttonRed mx-auto"
               variant="botonmodalrojo"
               onClick={() => {
                 setModal3(false);

@@ -75,7 +75,7 @@ export const UnirseRetirarseEvento = (props) => {
           </select>
           <button
             id="buttonAñadirse"
-            className="btn"
+            className="button"
             disabled={deshabilitado}
             onClick={onUnirse}
             type="submit"
@@ -101,8 +101,8 @@ export const UnirseRetirarseEvento = (props) => {
       <div className="text-center">
 
         <button
-          
-          className="btn btn-danger"
+
+          className="buttonRed"
           onClick={() => {
             onRetirarse();
           }}
@@ -203,7 +203,7 @@ export const UnirseRetirarseEvento = (props) => {
         </Modal.Header>
         <Modal.Body>{textoModal}</Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={() => navigate("/eventos")}>
+          <Button className="button mx-auto" variant="botonmodalazul" onClick={() => navigate("/eventos")}>
             Ir a eventos
           </Button>
         </Modal.Footer>

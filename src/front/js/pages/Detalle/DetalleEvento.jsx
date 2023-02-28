@@ -99,7 +99,7 @@ export const DetalleEvento = () => {
                             <h1>Detalles del evento</h1>
                         </div>
                         <div>
-                            <div className="row row-cols-xs-3 mt-3 pt-3">
+                            <div className="row row-cols-xs-3 mt-3 ">
                                 <div className="card-group ">
                                     <DetallesActividadEvento
                                         participantes={participantesConFavoritos(eventoEscojido.participantes)}

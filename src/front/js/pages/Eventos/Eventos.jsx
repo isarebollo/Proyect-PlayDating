@@ -83,7 +83,7 @@ export const Eventos = () => {
                                         // forzarHeight={true}
                                         evento_id={evento.id}
                                         participantes={evento.participantes}
-                                        creador={evento.creador.id}
+                                        creador={evento.creador.nombre}
                                         name={evento.actividad.nombre}
                                         src={evento.actividad.imagen}
                                         text={evento.actividad.descripcion}

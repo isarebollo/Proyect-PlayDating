@@ -114,12 +114,12 @@ export const CrearEvento = (props) => {
   return (
     <>
 
-      <div className="container-sm">
+      <div className="container-sm ">
 
-        <h2 className="mb-5 text-center">Crea tu Evento</h2>
-        <div className="row g-3 justify-content-center" id="CrearEvento">
+        <h2 className="mt-3 text-center">Crea tu Evento</h2>
+        <div className="row g-3 justify-content-center border m-5">
 
-          <div className="col-sm-4 DatosCrearEvento">
+          <div className="col-sm-4 ">
             <h3 className="mt-5" id="NombreActividadEvento"> {actividadEscojida.nombre}</h3>
             <img
               className=" mt-2 img-fluid "
@@ -240,6 +240,8 @@ export const CrearEvento = (props) => {
                     onChange={setfechayhora}
                     value={fecha_y_hora}
                     minDate={new Date()}
+                    
+                    
                   />
                 </div>
               </form>
@@ -251,7 +253,7 @@ export const CrearEvento = (props) => {
                 disabled={deshabilitado}
                 onClick={onSave}
 
-                className="btn btnCrearEvento"
+                className="button"
                 type="submit"
               >
                 Crear Evento
@@ -275,7 +277,7 @@ export const CrearEvento = (props) => {
           </Modal.Body>
           <Modal.Footer>
             <Button
-              className="botonmodalazul"
+              className="button mx-auto"
               variant="botonmodalazul"
               onClick={() => navigate("/eventos")}
             >

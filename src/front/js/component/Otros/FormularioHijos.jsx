@@ -51,7 +51,7 @@ const FormularioHijos = () => {
 				/>
 				<button
 				
-					className=" btn btn-info"
+					className="button"
 					onClick={guardarNombre}>
 					Añadir
 				</button>
@@ -65,7 +65,7 @@ const FormularioHijos = () => {
 
 						<button
 						id="buttonEliminarHijo"
-							className="btn btn-danger"
+							className="buttonRed"
 							onClick={() =>
 								eliminarhijos(index)
 							}>

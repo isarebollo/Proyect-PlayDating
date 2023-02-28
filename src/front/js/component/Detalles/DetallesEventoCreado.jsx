@@ -21,7 +21,7 @@ export const DetallesEventoCreado = (props) => {
 
   return (
     <>
-      <div className="card border rounded">
+      <div className="card border rounded ">
         <div className="card-title">
           <h5 className="text-center">{date}</h5>
           <hr></hr>

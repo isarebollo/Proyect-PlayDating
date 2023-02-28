@@ -25,7 +25,7 @@ export const List = (props) => {
 
                     <div className="text-center">
                         <Link to={`/${props.route}`}>
-                            <button type="button" className="button btn-lg btn-outline-info">
+                            <button type="button" className="button btn-lg">
                                 {props.button}
                             </button>
                         </Link>

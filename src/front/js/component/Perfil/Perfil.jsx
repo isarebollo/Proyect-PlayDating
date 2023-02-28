@@ -210,7 +210,7 @@ export const Perfil = (props) => {
                     <Modal.Body>{textoAlerta}</Modal.Body>
                     <Modal.Footer>
                         <Button
-                            className="botonmodalazul"
+                            className="button mx-auto"
                             variant="botonmodalazul"
                             onClick={() => {
                                 if (navegar) {

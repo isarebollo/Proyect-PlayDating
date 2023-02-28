@@ -106,6 +106,7 @@ export const Login = (props) => {
                     <Modal.Body>{textoAlerta}</Modal.Body>
                     <Modal.Footer>
                         <Button
+                        className="button mx-auto"
                             variant="primary"
                             onClick={() => {
                                 if (modalManager) {

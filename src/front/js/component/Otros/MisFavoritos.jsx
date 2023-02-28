@@ -53,9 +53,9 @@ export const MisFavoritos = () => {
             {favoritos.map((favorito, index) => {
               return (
                 <li className="list-group-item m-1" key={index}>
-                 <GoPrimitiveDot></GoPrimitiveDot> {favorito.usuario_favorito.nombre}{" "}
+                 <GoPrimitiveDot></GoPrimitiveDot> {favorito.usuario_favorito.nombre.toUpperCase()}{" "}
                   <button
-                    className="btn btn-outline-danger ms-4"
+                    className="buttonRed ms-4"
                     onClick={() => {
                       onEliminarFavorito(favorito.usuario_favorito.id);
                     }}

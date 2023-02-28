@@ -1,6 +1,9 @@
 import React from "react";
 import "./../Detalles/DetalleActividadesEvento.css"
 import "./../../../../App.css"
+
+import { AiOutlineStar } from "react-icons/ai";
+import { BsFillStarFill } from "react-icons/bs";
 export const DetallesActividadEvento = (props) => {
 
   const participantesEvento = (listaParticipantes) => {
@@ -19,7 +22,7 @@ export const DetallesActividadEvento = (props) => {
             </li>
           );
         } else {
-          const favClazz = participante.esFavorito ? "fas fa-star" : "far fa-star"
+          const favClazz = participante.esFavorito ?  <BsFillStarFill />: <AiOutlineStar />
           return (
             <li key={index}>
               {participante.nombre} con {participante.cantidad} participante/s{" "}
@@ -28,7 +31,7 @@ export const DetallesActividadEvento = (props) => {
                 data-bs-placement="right"
                 onClick={() => { props.onAgregarOEliminarFavorito(participante.id) }}
               >
-                <i className={favClazz + " yellow"}></i>
+                <i >{favClazz}</i>
               </button>
             </li>
           );

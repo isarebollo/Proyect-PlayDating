@@ -98,7 +98,7 @@ export const ListMisEventos = (props) => {
                                     }}
 
                                     href="#"
-                                    className="btn-danger m-1"
+                                    className="buttonRed m-3"
                                     role="button"
                                 >
                                     Cancelar Evento
