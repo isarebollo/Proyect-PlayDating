@@ -12,13 +12,13 @@ export const InvitarUsuario = (props) => {
         setFavoritos(data.data);
       })
       .catch((error) => {
-        const errorStr = JSON.stringify(error);
+        JSON.stringify(error);
       });
   }, []);
 
   const llenarOpcionesSelect = () => {
     const favoritosUsuario = favoritos;
-    if (favoritosUsuario.length != 0) {
+    if (favoritosUsuario.length !== 0) {
       let opcionesSelect = favoritosUsuario.map((favoritoUsuario, index) => {
         return (
           <option key={index} value={favoritoUsuario.usuario_favorito.id}>
@@ -35,7 +35,7 @@ export const InvitarUsuario = (props) => {
   const updateSelect = (e) => {
     const value = e.target.value;
     setInvitacion(value);
-    console.log(JSON.stringify(value))
+    // console.log(JSON.stringify(value))
     props.onRecibirUsuarioAInvitar(value);
   };
 

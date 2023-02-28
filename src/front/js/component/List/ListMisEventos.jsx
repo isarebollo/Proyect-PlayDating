@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import propTypes from "prop-types";
 import { HOSTNAME } from "./../../component/config"
 import { retirarseDeEvento } from "../api";
 import "./../List/ListMisEventos.css"
 import "./../../../../App.css"
 import { Link } from "react-router-dom";
-import Modal from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";
+
 import moment from "moment";
 
 
@@ -86,7 +85,7 @@ export const ListMisEventos = (props) => {
                                     Ver Detalles
                                 </button>
                             </Link>
-                            {props.estado !== "Cancelado" && props.estado !== "Cerrado" && (
+                            {props.estado !== "Cancelado" && props.estado != "Cerrado" && (
                                 <button
                                     onClick={() => {
                                         setModal1(true);
@@ -103,7 +102,7 @@ export const ListMisEventos = (props) => {
                                 </button>
                             )}
                         </div>
-                    ) : undefined !=
+                    ) : undefined !==
                         props.participantes.find(
                             (participante) =>
                                 participante.id == localStorage.getItem("usuario")

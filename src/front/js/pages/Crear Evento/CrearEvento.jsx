@@ -99,7 +99,7 @@ export const CrearEvento = (props) => {
 
     if (resp.ok) {
       setModal(true);
-      console.log(usuarioAInvitar);
+      
       if (usuarioAInvitar != "") {
         try {
           const resp2 = await invitarUsuario(usuarioAInvitar, data.data.id);
