@@ -66,54 +66,6 @@ export const Comentario = (props) => {
           </div>
         </div>
       </div>
-
-
-
-
-      {/* <div className="container bg-info">
-        <div className="row mx-auto mb-4">
-          <div className="card-header">
-            <p id="nombreUsuario">
-              {props.usuario.nombre}
-              {props.usuario.id != localStorage.getItem("usuario") && (
-                <button
-                  className= "button"
-                  data-bs-toggle="tooltip"
-                  data-bs-placement="right"
-                  title="Añadir usuario a Favoritos"
-                  onClick={() => {
-                    props.onAgregarOEliminarFavorito(props.usuario.id);
-                  }}
-                >
-                  <i className={favClazz + " yellow"}></i>
-                </button>
-              )}
-            </p>
-          </div>
-          <div className="card-body">
-            <p className="card-text">{props.comentario}</p>
-          </div>
-          <div className="card-footer">
-            <div className="row">
-              <div className="col">
-                <div className="text-muted">{props.fecha}</div>
-              </div>
-              {props.usuario.id == localStorage.getItem("usuario") && (
-                <div className="col">
-                  <button
-                    className="buttonRedTrash fs-4"
-                    onClick={() => {
-                      onEliminarComentario(props.comentarioId);
-                    }}
-                  >
-                    <BiTrash/>
-                  </button>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      </div> */}
     </>
   );
 };

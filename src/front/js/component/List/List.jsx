@@ -18,11 +18,9 @@ export const List = (props) => {
                         <h4 className="mb-1 mt-4 ">{props.name}</h4>
                         <small>{props.tipo}</small>
                     </div>
-
                     <div >
                         <p className="mb-1">{props.descripcion}</p>
                     </div>
-
                     <div className="text-center">
                         <Link to={`/${props.route}`}>
                             <button type="button" className="button btn-lg">
@@ -30,14 +28,7 @@ export const List = (props) => {
                             </button>
                         </Link>
                     </div>
-
-
-
-
-
                 </div>
-
-
             </div>
         </>
     )

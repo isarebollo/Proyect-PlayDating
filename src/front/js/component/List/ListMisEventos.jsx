@@ -10,8 +10,6 @@ import Button from "react-bootstrap/Button";
 import moment from "moment";
 
 
-
-
 export const ListMisEventos = (props) => {
     const [modal1, setModal1] = useState(false);
     const [modal2, setModal2] = useState(false);

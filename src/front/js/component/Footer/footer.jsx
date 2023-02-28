@@ -4,7 +4,7 @@ import "./../../../../App.css"
 import "./../Footer/footer.css"
 
 
-import { BsFacebook, BsTwitter, BsGithub, BsLinkedin } from "react-icons/bs";
+import { BsGithub, BsLinkedin } from "react-icons/bs";
 
 export const Footer = () => {
 
