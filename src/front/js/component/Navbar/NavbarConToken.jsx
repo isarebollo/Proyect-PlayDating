@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { config } from "./../config"
 import "./../../../../App.css"
 import "./navbar.css"
+import PlayDating from "./../../../img/logo-bloques.png"
+
 export const NavbarConToken = () => {
     
     const removeStorage = () => {
@@ -10,16 +12,15 @@ export const NavbarConToken = () => {
         localStorage.removeItem("usuario");
     };
     return (
-        <>
-         
-            <nav className="navbar navbar-expand-lg">
+        <>        
+            <nav className="navbar navbar-expand-lg">           
                 <div className="container-fluid">
-                    <a className="navbar-brand nav-link" href="/">PlayDating</a>
+                     <a className="navbar-brand nav-link" href="/"><img id="logo" src={PlayDating} alt="PlayDating" /></a> 
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse">
-                        <div className="navbar-nav">
+                        <div className="navbar-nav ">
                             <a className="nav-link" href="/home">Home</a>
                             <a className="nav-link" href="/actividades">Actividades</a>
                             <a className="nav-link" href="/eventos">Eventos</a>
@@ -28,7 +29,6 @@ export const NavbarConToken = () => {
                         </div>
                     </div>
                     <form>
-
                         <Link to="/">
                             <button
                                 className="button me-2  "
