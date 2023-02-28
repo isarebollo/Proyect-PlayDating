@@ -95,7 +95,7 @@ export const CrearEvento = (props) => {
     });
 
     const data = await resp.json();
-    console.log(data)
+    
 
     if (resp.ok) {
       setModal(true);
