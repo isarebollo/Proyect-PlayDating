@@ -1,4 +1,4 @@
-export const HOSTNAME ="https://playdating.netlify.app"
+export const HOSTNAME ="https://playdating.netlify.app/"
 
 export const config = {
 

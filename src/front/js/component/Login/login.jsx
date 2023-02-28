@@ -76,15 +76,15 @@ export const Login = () => {
                 <div className="card cardLogin">
                     <a className="singup">Login</a>
                     <div className="inputBox1">
-                        <input onChange={(e) => updateText(e, setEmail)}
+                        <input autoComplete="current-user" onChange={(e) => updateText(e, setEmail)}
                             value={email} type="text" required="required"></input>
                         <span className="user">Email</span>
                     </div>
 
 
                     <div className="inputBox">
-                        <input onChange={(e) => updateText(e, setPassword)}
-                            value={password} type="password" required="required"></input>
+                        <input autoComplete="current-password" onChange={(e) => updateText(e, setPassword)}
+                            value={password} type="password" required="required"> </input>
                         <span>Password</span>
                     </div>
 
