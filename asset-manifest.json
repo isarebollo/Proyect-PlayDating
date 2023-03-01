@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/PlayDating/static/css/main.fdc25a3e.css",
+    "main.js": "/PlayDating/static/js/main.4e2b830e.js",
+    "static/media/logo-bloques.png": "/PlayDating/static/media/logo-bloques.431a5527835d1b520695.png",
+    "index.html": "/PlayDating/index.html",
+    "main.fdc25a3e.css.map": "/PlayDating/static/css/main.fdc25a3e.css.map",
+    "main.4e2b830e.js.map": "/PlayDating/static/js/main.4e2b830e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fdc25a3e.css",
+    "static/js/main.4e2b830e.js"
+  ]
+}
