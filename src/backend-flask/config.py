@@ -7,7 +7,7 @@ class Config(object):
     TESTING = False
     CSRF_ENABLED = True
     SECRET_KEY = '1234'
-    SQLALCHEMY_DATABASE_URI = 'postgresql://pladating_user:Jvg5pL2bf0XweWLx6YgFxP30rTvNPVSt@dpg-cfvjnht269v0ptlohgpg-a/pladating'
+    SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:Uno2Tres4@localhost/PlayDating_Api_Rest'
     
 
 
