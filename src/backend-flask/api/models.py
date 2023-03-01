@@ -31,7 +31,7 @@ class Usuario(db.Model):
 class Actividad(db.Model):
     __tablename__ = 'actividad'
     id = db.Column(db.Integer, primary_key=True)
-    nombre = db.Column(db.String(250), nullable=False)
+    nombre = db.Column(db.String(125), nullable=False)
     descripcion = db.Column(db.String(250), nullable=False)
     tipo_de_actividad_id = db.Column(
         db.Integer, db.ForeignKey('tipo_de_actividad.id'))
@@ -77,7 +77,7 @@ class Evento(db.Model):
     edad_minima = db.Column(db.Integer)
     edad_maxima = db.Column(db.Integer)
     direccion = db.Column(db.String(250), nullable=False)
-    estado = db.Column(db.String(250), nullable=False)
+    estado = db.Column(db.String(50), nullable=False)
     actividad_id = db.Column(db.Integer, db.ForeignKey(
         'actividad.id'), nullable=False)
     creador = db.relationship('Usuario')  # provincia a partir de usuario

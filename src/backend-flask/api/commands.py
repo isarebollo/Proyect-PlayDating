@@ -15,7 +15,6 @@ def setup_commands(app):
     """ 
     This is an example command "insert-provincias" that you can run from the command line
     by typing: $ flask insert-provincias
-
     """
     # Para agregar a información de las tablas poner en la terminal "flask" + el nombre del comando ej. insert-provincias (para agregar las provincias)
     # $ flask insert-provincias
@@ -40,18 +39,18 @@ def setup_commands(app):
     def insert_actividades_data():
         if len(Actividad.query.all()) == 0:
             actividades = [
-                {"nombre": "Juegos de Agua", "descripcion": "Planea refrescantes juegos de agua en verano para tus hijos y sus amigos. Cada participante lleva los implementos necesarios. Tú eliges el lugar. Cada participante requiere de la compañía de un adulto responsable.", "tipo_de_actividad_id": 1, "imagen": "url"},
-                {"nombre": "Partido de Fútbol", "descripcion": "Organiza un partido de futbol con tus hijos y sus amigos. Cada participante lleva los implementos necesarios. Tú eliges el lugar. Cada participante requiere de la compañía de un adulto responsable. ", "tipo_de_actividad_id": 1, "imagen": "url"},
-                {"nombre": "Picnic", "descripcion": "Ten un picnic con tus hijos y sus amigos. Cada participante lleva algo para compartir entre todos. Tú eliges el lugar. Cada participante requiere de la compañía de un adulto responsable.", "tipo_de_actividad_id": 1, "imagen": "url"},
+                {"nombre": "Juegos de Agua", "descripcion": "Planea refrescantes juegos de agua en verano para tus hijos y sus amigos. Cada participante lleva los implementos necesarios. Tú eliges el lugar. Cada participante requiere de la compañía de un adulto responsable.", "tipo_de_actividad_id": 7, "imagen": "url"},
+                {"nombre": "Partido de Fútbol", "descripcion": "Organiza un partido de futbol con tus hijos y sus amigos. Cada participante lleva los implementos necesarios. Tú eliges el lugar. Cada participante requiere de la compañía de un adulto responsable. ", "tipo_de_actividad_id": 7, "imagen": "url"},
+                {"nombre": "Picnic", "descripcion": "Ten un picnic con tus hijos y sus amigos. Cada participante lleva algo para compartir entre todos. Tú eliges el lugar. Cada participante requiere de la compañía de un adulto responsable.", "tipo_de_actividad_id": 7, "imagen": "url"},
                 {"nombre": "Ruta en Ruedas", "descripcion": "Montar en Bici, patines o patineta. Cada participante lleva su vehiculo. Tú eliges el lugar. Cada participante requiere de la compañía de un adulto responsable.",
-                    "tipo_de_actividad_id": 1, "imagen": "url"},
+                    "tipo_de_actividad_id": 7, "imagen": "url"},
                 {"nombre": "Juego Libre al Exterior", "descripcion": "Tus hijos y sus amigos podrán jugar libremente en el parque. Tú eliges el lugar. Cada participante requiere de la compañía de un adulto responsable.",
-                    "tipo_de_actividad_id": 1, "imagen": "url"},
-                {"nombre": "Manualidades", "descripcion": "Organiza una sesión de manualidades para tus hijos y sus amigos. Cada participante lleva los implementos necesarios. Tú eliges el lugar. Cada participante requiere de la compañía de un adulto responsable.", "tipo_de_actividad_id": 2, "imagen": "url"},
-                {"nombre": "Lectura de Cuentos", "descripcion": "Planea una sesión de lectura o cuentacuentos para tus hijos y sus amigos. Cada participante puede llevar un libro. Tú eliges el lugar. Cada participante requiere de la compañía de un adulto responsable.", "tipo_de_actividad_id": 2, "imagen": "url"},
-                {"nombre": "Juegos de Mesa/Puzzles", "descripcion": "Organiza una sesión de juegos de mesa  y/o puzzles para tus hijos y sus amigos. Cada participante puede llevar un juego/puzzle. Tú eliges el lugar. Cada participante requiere de la compañía de un adulto responsable.", "tipo_de_actividad_id": 2, "imagen": "url"},
+                    "tipo_de_actividad_id": 7, "imagen": "url"},
+                {"nombre": "Manualidades", "descripcion": "Organiza una sesión de manualidades para tus hijos y sus amigos. Cada participante lleva los implementos necesarios. Tú eliges el lugar. Cada participante requiere de la compañía de un adulto responsable.", "tipo_de_actividad_id": 8, "imagen": "url"},
+                {"nombre": "Lectura de Cuentos", "descripcion": "Planea una sesión de lectura o cuentacuentos para tus hijos y sus amigos. Cada participante puede llevar un libro. Tú eliges el lugar. Cada participante requiere de la compañía de un adulto responsable.", "tipo_de_actividad_id": 8, "imagen": "url"},
+                {"nombre": "Juegos de Mesa/Puzzles", "descripcion": "Organiza una sesión de juegos de mesa  y/o puzzles para tus hijos y sus amigos. Cada participante puede llevar un juego/puzzle. Tú eliges el lugar. Cada participante requiere de la compañía de un adulto responsable.", "tipo_de_actividad_id": 8, "imagen": "url"},
                 {"nombre": "Juego Libre en Interior", "descripcion": "Tus hijos y sus amigos podrán jugar libremente. Tú eliges el lugar. Cada participante requiere de la compañía de un adulto responsable.",
-                 "tipo_de_actividad_id": 2, "imagen": "url"}]
+                 "tipo_de_actividad_id": 8, "imagen": "url"}]
             for obj_actividad in actividades:
                 actividad = Actividad()
                 actividad.nombre = obj_actividad["nombre"]
