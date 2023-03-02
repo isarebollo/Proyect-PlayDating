@@ -1,8 +1,8 @@
 #! /usr/bin/bash
 
 : '
- Author: Nikhil Mohite
- GitHub: https://www.github.com/nkilm
+ Author: Isabel Rebollo
+ GitHub: https://www.github.com/isarebollo
  Date  : 30-07-2022
  Description: Bash script to start server
 '
